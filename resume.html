@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume | Eissayou</title>
   <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
   <header>
@@ -20,24 +22,44 @@
     </nav>
   </header>
   <main>
-    <section class="resume">
-      <h1>Resume</h1>
-      <a href="assets/Eissayou-Resume.pdf" download>Download PDF</a>
-      <h2>Work Experience</h2>
-      <ul>
-        <li><strong>Software Developer Intern</strong> at Example Corp (2023)<br>Worked on web applications and improved user experience.</li>
-        <li><strong>Freelance Web Designer</strong> (2022)<br>Designed and built websites for small businesses.</li>
-      </ul>
-      <h2>Education</h2>
-      <ul>
-        <li>B.Sc. in Computer Science, Your University (2020-2024)</li>
-      </ul>
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>React, Jekyll</li>
-        <li>Git, GitHub</li>
-      </ul>
+    <section class="resume-card">
+      <h1><i class="fa-solid fa-file-alt"></i> Resume</h1>
+      <a class="project-btn resume-btn" href="https://flowcv.com/resume/sehslfke65" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> View Full Resume (PDF)</a>
+      <div class="resume-section">
+        <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+        <ul>
+          <li><strong>MS, Computer Science</strong>, UC Davis (GPA 3.83), Sep 2025</li>
+          <li><strong>BS, Computer Science</strong>, CSU Stanislaus (GPA 3.92), May 2023</li>
+        </ul>
+      </div>
+      <div class="resume-section">
+        <h2><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
+        <ul>
+          <li><strong>Teaching Assistant</strong>, UC Davis (Oct 2023 – Jul 2025, Davis, CA)<br>
+            • Recipient of the 2025 CS Teaching Assistant Excellence Award<br>
+            • Engineered Python-based autograders, reducing grading time by 90%<br>
+            • Delivered technical lectures and live coding demos to 100+ students<br>
+          </li>
+          <li><strong>Computer Vision Engineering Intern</strong>, University of Nebraska-Lincoln (May 2022 – Aug 2022, Lincoln, NE)<br>
+            • Built YOLOv5-based neural network for UAV object detection (93% mAP)<br>
+            • Optimized UAV control algorithms, reducing latency by 30%<br>
+            • Led outreach workshops for NCPA and Girls Code Lincoln<br>
+          </li>
+          <li><strong>IT Service Desk</strong>, Yosemite Community College District (Aug 2019 – Dec 2021, Modesto, CA)<br>
+            • Supported hardware/software for faculty and students<br>
+            • Resolved 30+ tickets/week in ServiceNow<br>
+          </li>
+        </ul>
+      </div>
+      <div class="resume-section">
+        <h2><i class="fa-solid fa-code"></i> Skills</h2>
+        <ul>
+          <li><strong>Languages:</strong> Python, Java, JavaScript, SQL</li>
+          <li><strong>Frameworks:</strong> Flask, Django, Next.js</li>
+          <li><strong>Cloud/DB:</strong> Azure (Cosmos DB, Data Lake Gen2, AD B2C)</li>
+          <li><strong>Tools:</strong> Docker, Kubernetes, GitHub Actions</li>
+        </ul>
+      </div>
     </section>
   </main>
   <footer>

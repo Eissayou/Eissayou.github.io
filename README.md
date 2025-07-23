@@ -14,6 +14,11 @@ This is a personal website built with HTML and CSS, designed to showcase your pr
   - `profile-placeholder.png` — Placeholder profile image
   - `Eissayou-Resume.pdf` — (Add your resume here)
 
+## Features
+- **Fully responsive and mobile-friendly**: The layout and navigation adapt for all screen sizes.
+- **Minimalist header**: The navigation bar does not include a site title for a clean, modern look.
+- **Contact form**: Uses Formspree for reliable email delivery. Your email is not shown in plain text for privacy.
+
 ## How to Deploy on GitHub Pages
 1. Push this repository to GitHub.
 2. Go to your repository settings on GitHub.
