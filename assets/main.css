@@ -1,0 +1,160 @@
+/* Main Stylesheet for Eissayou Personal Website */
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #222;
+}
+
+header {
+  background: #222;
+  color: #fff;
+  padding: 0.5rem 0;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin: 0 1rem;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav ul li a:hover {
+  color: #4f8cff;
+}
+
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+}
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  background: #e0e0e0;
+}
+.tagline {
+  font-size: 1.2rem;
+  color: #4f8cff;
+  margin-bottom: 1rem;
+}
+
+.about, .projects, .resume, .blog, .contact {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.project {
+  flex: 1 1 250px;
+  background: #f4f8ff;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.project h2 {
+  margin-top: 0;
+}
+
+.resume ul, .about ul {
+  padding-left: 1.2rem;
+}
+.resume ul li, .about ul li {
+  margin-bottom: 0.5rem;
+}
+
+.blog article {
+  margin-bottom: 2rem;
+}
+.blog .date {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+.contact input, .contact textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.contact button {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.contact button:hover {
+  background: #2563eb;
+}
+.social-links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+.social-links a {
+  color: #4f8cff;
+  text-decoration: none;
+}
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #222;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .project-list {
+    flex-direction: column;
+  }
+  main {
+    padding: 0 0.5rem;
+  }
+  .about, .projects, .resume, .blog, .contact {
+    padding: 1rem;
+  }
+} 
