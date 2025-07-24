@@ -46,7 +46,12 @@
 </head>
 <body>
   <header>
-    <nav>
+    <nav class="main-nav">
+      <div class="hamburger" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -76,9 +81,21 @@
         <div>
           <h2>Fun Facts</h2>
           <ul>
-            <li>Recipient of the 2025 CS Teaching Assistant Excellence Award at UC Davis</li>
-            <li>Enjoy hiking, coffee, and coding challenges</li>
-            <li>Led outreach workshops for Girls Code Lincoln and NCPA</li>
+            <li>I love teaching others. I was also the recipient of the 2025 CS Teaching Assistant Excellence Award at UC Davis.</li>
+            <li>
+              Racquet sports are my favorite whether it be Tennis, Badminton, or Table Tennis.
+              <div class="tennis-profile-link">
+                <a href="https://app.utrsports.net/profiles/319794" class="tennis-link" target="_blank" rel="noopener">My Tennis Profile</a>
+              </div>
+            </li>
+            <li>
+              I lift weights when I'm stressed (which is most of the time). I'm just 25 lbs away from the 1,000-pound club!
+              <div class="lift-stats sleek-lifts">
+                <span><strong>Bench</strong> 275 lbs</span>
+                <span><strong>Squat</strong> 365 lbs</span>
+                <span><strong>Deadlift</strong> 335 lbs</span>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -87,5 +104,13 @@
   <footer>
     <p>&copy; 2024 Eissayou. All rights reserved.</p>
   </footer>
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger-menu');
+    const nav = document.querySelector('.main-nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
 </html> 

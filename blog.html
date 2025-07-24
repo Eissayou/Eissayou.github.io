@@ -6,10 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | Eissayou</title>
   <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
   <header>
-    <nav>
+    <nav class="main-nav">
+      <div class="hamburger" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -21,13 +27,21 @@
     </nav>
   </header>
   <main>
-    <section class="blog">
-      <h1>Blog</h1>
+    <section class="blog-card">
+      <h1 class="blog-title"><i class="fa-solid fa-pen-nib"></i> Blog</h1>
       <p>Coming soon...</p>
     </section>
   </main>
   <footer>
     <p>&copy; 2024 Eissayou. All rights reserved.</p>
   </footer>
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger-menu');
+    const nav = document.querySelector('.main-nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
 </html> 

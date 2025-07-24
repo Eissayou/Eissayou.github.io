@@ -10,7 +10,12 @@
 </head>
 <body>
   <header>
-    <nav>
+    <nav class="main-nav">
+      <div class="hamburger" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -28,7 +33,7 @@
       <div class="resume-section">
         <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
         <ul>
-          <li><strong>MS, Computer Science</strong>, UC Davis (GPA 3.83), Sep 2025</li>
+          <li><strong>MS, Computer Science</strong>, UC Davis (GPA 3.83), Jul 2025</li>
           <li><strong>BS, Computer Science</strong>, CSU Stanislaus (GPA 3.92), May 2023</li>
         </ul>
       </div>
@@ -65,5 +70,13 @@
   <footer>
     <p>&copy; 2024 Eissayou. All rights reserved.</p>
   </footer>
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger-menu');
+    const nav = document.querySelector('.main-nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
 </html> 
