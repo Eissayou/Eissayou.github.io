@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://eissayou.com/sitemap.xml
+Sitemap: https://www.eissayou.com/sitemap.xml
