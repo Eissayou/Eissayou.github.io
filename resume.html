@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="assets/je.png" sizes="32x32">
@@ -7,89 +8,194 @@
   <link rel="apple-touch-icon" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume | Jason Eissayou - Software Engineer & AI Enthusiast</title>
-  <meta name="description" content="Jason Eissayou's professional resume - MS Computer Science from UC Davis, Teaching Assistant, Computer Vision Engineering Intern, and IT experience.">
+  <meta name="description"
+    content="Jason Eissayou's professional resume. MS Computer Science (UC Davis). Certifications: CompTIA Security+, Azure Security Engineer (AZ-500). Skills: Cloud Security, AI/ML, Python, Azure.">
   <link rel="canonical" href="https://eissayou.com/resume.html">
   <meta property="og:title" content="Resume | Jason Eissayou - Software Engineer & AI Enthusiast">
-  <meta property="og:description" content="Jason Eissayou's professional resume - MS Computer Science from UC Davis, Teaching Assistant, Computer Vision Engineering Intern, and IT experience.">
+  <meta property="og:description"
+    content="Jason Eissayou's professional resume - MS Computer Science from UC Davis, Teaching Assistant, Computer Vision Engineering Intern, and IT experience.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://eissayou.com/resume.html">
   <meta property="og:image" content="https://eissayou.com/assets/profile.jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Resume | Jason Eissayou - Software Engineer & AI Enthusiast">
-  <meta name="twitter:description" content="Jason Eissayou's professional resume - MS Computer Science from UC Davis, Teaching Assistant, Computer Vision Engineering Intern, and IT experience.">
+  <meta name="twitter:description"
+    content="Jason Eissayou's professional resume - MS Computer Science from UC Davis, Teaching Assistant, Computer Vision Engineering Intern, and IT experience.">
   <meta name="twitter:image" content="https://eissayou.com/assets/profile.jpeg">
   <link rel="stylesheet" href="assets/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
 <body>
   <header>
     <nav class="main-nav">
+      <a href="index.html"
+        style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary); text-decoration: none;">JE.</a>
       <div class="hamburger" id="hamburger-menu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul>
+      <ul id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
+        <li><a href="resume.html" class="active">Resume</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <section class="resume-card">
-      <h1><i class="fa-solid fa-file-alt"></i> Resume</h1>
-      <a class="project-btn resume-btn" href="https://flowcv.com/resume/sehslfke65" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> View Full Resume (PDF)</a>
-      <div class="resume-section">
-        <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
-        <ul>
-          <li><strong>MS, Computer Science</strong>, UC Davis (GPA 3.83), Jul 2025</li>
-          <li><strong>BS, Computer Science</strong>, CSU Stanislaus (GPA 3.92), May 2023</li>
-        </ul>
+    <section class="card-section resume-card">
+      <div
+        style="text-align: center; margin-bottom: 3rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <h1 class="text-gradient" style="margin-bottom: 0;">Résumé</h1>
+        <a class="project-btn" href="https://flowcv.com/resume/sehslfke65" target="_blank" rel="noopener">
+          <i class="fa-solid fa-download" style="margin-right: 0.5rem;"></i> View Full PDF
+        </a>
       </div>
-      <div class="resume-section">
-        <h2><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
-        <ul>
-          <li><strong>Teaching Assistant</strong>, UC Davis (Oct 2023 – Jul 2025, Davis, CA)<br>
-            • Recipient of the 2025 CS Teaching Assistant Excellence Award<br>
-            • Engineered Python-based autograders, reducing grading time by 90%<br>
-            • Delivered technical lectures and live coding demos to 100+ students<br>
-          </li>
-          <li><strong>Computer Vision Engineering Intern</strong>, University of Nebraska-Lincoln (May 2022 – Aug 2022, Lincoln, NE)<br>
-            • Built YOLOv5-based neural network for UAV object detection (93% mAP)<br>
-            • Optimized UAV control algorithms, reducing latency by 30%<br>
-            • Led outreach workshops for NCPA and Girls Code Lincoln<br>
-          </li>
-          <li><strong>IT Service Desk</strong>, Yosemite Community College District (Aug 2019 – Dec 2021, Modesto, CA)<br>
-            • Supported hardware/software for faculty and students<br>
-            • Resolved 30+ tickets/week in ServiceNow<br>
-          </li>
-        </ul>
-      </div>
-      <div class="resume-section">
-        <h2><i class="fa-solid fa-code"></i> Skills</h2>
-        <ul>
-          <li><strong>Languages:</strong> Python, Java, JavaScript, SQL</li>
-          <li><strong>Frameworks:</strong> Flask, Django, Next.js</li>
-          <li><strong>Cloud/DB:</strong> Azure (Cosmos DB, Data Lake Gen2, AD B2C)</li>
-          <li><strong>Tools:</strong> Docker, Kubernetes, GitHub Actions</li>
-        </ul>
+
+      <div style="max-width: 700px; margin: 0 auto;">
+
+        <div class="resume-section" style="margin-bottom: 3rem;">
+          <h2
+            style="font-size: 1.5rem; color: var(--primary-color); border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+            Education
+          </h2>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+              <strong style="font-size: 1.1rem;">UC Davis</strong>
+              <span style="color: var(--text-secondary);">Jul 2025</span>
+            </div>
+            <div>MS, Computer Science (GPA 3.83)</div>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+              <strong style="font-size: 1.1rem;">CSU Stanislaus</strong>
+              <span style="color: var(--text-secondary);">May 2023</span>
+            </div>
+            <div>BS, Computer Science (GPA 3.92)</div>
+          </div>
+        </div>
+
+        <div class="resume-section" style="margin-bottom: 3rem;">
+          <h2
+            style="font-size: 1.5rem; color: var(--primary-color); border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+            Experience
+          </h2>
+
+          <div style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1.1rem;">Teaching Assistant</strong>
+              <span style="color: var(--text-secondary);">UC Davis • Oct 2023 – Present</span>
+            </div>
+            <ul style="padding-left: 1.2rem; color: var(--text-secondary); list-style-type: disc;">
+              <li>Recipient of the 2025 CS Teaching Assistant Excellence Award.</li>
+              <li>Engineered Python-based autograders, reducing grading time by 90%.</li>
+              <li>Delivered technical lectures and demos to 100+ students.</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1.1rem;">Computer Vision Eng. Intern</strong>
+              <span style="color: var(--text-secondary);">University of Nebraska-Lincoln • Summer 2022</span>
+            </div>
+            <ul style="padding-left: 1.2rem; color: var(--text-secondary); list-style-type: disc;">
+              <li>Built YOLOv5 neural networks for UAV object detection (93% mAP).</li>
+              <li>Optimized UAV control algorithms, reducing latency by 30%.</li>
+              <li>Led outreach workshops for NCPA and Girls Code Lincoln.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1.1rem;">IT Service Desk</strong>
+              <span style="color: var(--text-secondary);">YCCD • Aug 2019 – Dec 2021</span>
+            </div>
+            <ul style="padding-left: 1.2rem; color: var(--text-secondary); list-style-type: disc;">
+              <li>Supported hardware/software for district faculty and students.</li>
+              <li>Resolved 30+ tickets/week with high satisfaction rates.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-section" style="margin-bottom: 3rem;">
+          <h2
+            style="font-size: 1.5rem; color: var(--primary-color); border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+            Certifications
+          </h2>
+          <div style="display: grid; gap: 1rem;">
+            <div
+              style="background: var(--bg-paper); padding: 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">CompTIA
+                Security+</strong>
+            </div>
+            <div
+              style="background: var(--bg-paper); padding: 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">Azure Security
+                Engineer Associate (AZ-500)</strong>
+            </div>
+            <div
+              style="background: var(--bg-paper); padding: 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">Azure Administrator
+                Associate (AZ-104)</strong>
+            </div>
+            <div
+              style="background: var(--bg-paper); padding: 1rem; border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">Azure Fundamentals
+                (AZ-900)</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h2
+            style="font-size: 1.5rem; color: var(--primary-color); border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+            Skills
+          </h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div>
+              <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary-color);">Languages</strong>
+              <p style="font-size: 0.95rem; color: var(--text-secondary);">Python, Java, JavaScript, SQL, C++</p>
+            </div>
+            <div>
+              <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary-color);">Frameworks</strong>
+              <p style="font-size: 0.95rem; color: var(--text-secondary);">Flask, Django, Next.js, React</p>
+            </div>
+            <div>
+              <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary-color);">Cloud &
+                DevOps</strong>
+              <p style="font-size: 0.95rem; color: var(--text-secondary);">Azure (Sentinel, Logic Apps, Cosmos DB),
+                Docker, Kubernetes, GitHub Actions</p>
+            </div>
+            <div>
+              <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary-color);">Security &
+                Networking</strong>
+              <p style="font-size: 0.95rem; color: var(--text-secondary);">SIEM, Threat Hunting, Incident Response,
+                OAuth, Wireshark</p>
+            </div>
+            <div>
+              <strong style="display: block; margin-bottom: 0.5rem; color: var(--primary-color);">AI & Machine
+                Learning</strong>
+              <p style="font-size: 0.95rem; color: var(--text-secondary);">PyTorch, Generative AI (Gemini API), YOLO,
+                MediaPipe</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2024 Eissayou. All rights reserved.</p>
+    <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
   </footer>
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger-menu');
-    const nav = document.querySelector('.main-nav');
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="assets/script.js"></script>
 </body>
-</html> 
+
+</html>

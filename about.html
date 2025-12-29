@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="assets/je.png" sizes="32x32">
@@ -7,16 +8,19 @@
   <link rel="apple-touch-icon" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Jason Eissayou | Software Engineer & AI Enthusiast</title>
-  <meta name="description" content="Learn more about Jason Eissayou, a software engineer and AI enthusiast with an MS in Computer Science from UC Davis. Discover his background, interests, and skills.">
+  <meta name="description"
+    content="About Jason Eissayou: Software Engineer & AI Enthusiast specializing in Cloud Security and Machine Learning. MS CS from UC Davis. Passionate about building secure, intelligent systems.">
   <link rel="canonical" href="https://eissayou.com/about.html">
   <meta property="og:title" content="About Jason Eissayou | Software Engineer & AI Enthusiast">
-  <meta property="og:description" content="Learn more about Jason Eissayou, a software engineer and AI enthusiast with an MS in Computer Science from UC Davis. Discover his background, interests, and skills.">
+  <meta property="og:description"
+    content="Learn more about Jason Eissayou, a software engineer and AI enthusiast with an MS in Computer Science from UC Davis. Discover his background, interests, and skills.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://eissayou.com/about.html">
   <meta property="og:image" content="https://eissayou.com/assets/profile.jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About Jason Eissayou | Software Engineer & AI Enthusiast">
-  <meta name="twitter:description" content="Learn more about Jason Eissayou, a software engineer and AI enthusiast with an MS in Computer Science from UC Davis. Discover his background, interests, and skills.">
+  <meta name="twitter:description"
+    content="Learn more about Jason Eissayou, a software engineer and AI enthusiast with an MS in Computer Science from UC Davis. Discover his background, interests, and skills.">
   <meta name="twitter:image" content="https://eissayou.com/assets/profile.jpeg">
   <script type="application/ld+json">
     {
@@ -45,18 +49,22 @@
     }
   </script>
   <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
 <body>
   <header>
     <nav class="main-nav">
+      <a href="index.html"
+        style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary); text-decoration: none;">JE.</a>
       <div class="hamburger" id="hamburger-menu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul>
+      <ul id="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -64,55 +72,68 @@
       </ul>
     </nav>
   </header>
+
   <main>
-    <section class="about about-card">
-      <img src="assets/profile.jpeg" alt="Profile Photo" class="profile-photo">
-      <h1>About Me</h1>
-      <p class="about-bio">Hello! I'm Jason Eissayou, a passionate software engineer and AI enthusiast. I hold an MS in Computer Science from UC Davis (GPA 3.83) and a BS in Computer Science from CSU Stanislaus (GPA 3.92). My journey has taken me from IT support to teaching, research, and building impactful AI-powered web applications.</p>
-      <p class="about-bio">I love solving real-world problems with technology, whether it's building scalable cloud solutions, deploying machine learning models, or creating interactive web experiences. My technical toolkit includes Python, Java, JavaScript, SQL, Flask, Django, Next.js, Azure, Docker, and more.</p>
-      <div class="about-columns">
-        <div>
-          <h2>What Drives Me</h2>
-          <ul>
-            <li>Empowering users with intuitive, data-driven tools</li>
-            <li>Mentoring and teaching the next generation of developers</li>
-            <li>Exploring the intersection of AI, cloud, and user experience</li>
-            <li>Continuous learning and sharing knowledge</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Fun Facts</h2>
-          <ul>
-            <li>I love teaching others. I was also the recipient of the 2025 CS Teaching Assistant Excellence Award at UC Davis.</li>
-            <li>
-              Racquet sports are my favorite whether it be Tennis, Badminton, or Table Tennis.
-              <div class="tennis-profile-link">
-                <a href="https://app.utrsports.net/profiles/319794" class="tennis-link" target="_blank" rel="noopener">My Tennis Profile</a>
-              </div>
-            </li>
-            <li>
-              I lift weights when I'm stressed (which is most of the time). I'm just 25 lbs away from the 1,000-pound club!
-              <div class="lift-stats sleek-lifts">
-                <span><strong>Bench</strong> 275 lbs</span>
-                <span><strong>Squat</strong> 365 lbs</span>
-                <span><strong>Deadlift</strong> 335 lbs</span>
-              </div>
-            </li>
-          </ul>
+    <section class="card-section about">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <img src="assets/profile.jpeg" alt="Profile Photo" class="profile-photo" style="width: 140px; height: 140px;">
+        <h1 class="text-gradient" style="margin-top: 1.5rem; font-size: 2.25rem;">About Me</h1>
+      </div>
+
+      <div style="max-width: 700px; margin: 0 auto;">
+        <p class="about-bio" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+          Hello! I'm Jason Eissayou, a passionate software engineer and AI enthusiast. I hold an MS in Computer Science
+          from UC Davis (GPA 3.83) and a BS in Computer Science from CSU Stanislaus (GPA 3.92). My journey has taken me
+          from IT support to teaching, research, and building impactful AI-powered web applications.
+        </p>
+        <p class="about-bio" style="font-size: 1.1rem; margin-bottom: 2.5rem;">
+          I love solving real-world problems with technology, whether it's building scalable cloud solutions, deploying
+          machine learning models, or creating interactive web experiences. My technical toolkit includes Python, Java,
+          JavaScript, SQL, Flask, Django, Next.js, Azure, Docker, and more.
+        </p>
+
+        <div class="about-columns"
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem;">
+          <div>
+            <h2 style="font-size: 1.5rem; color: var(--primary-color);">What Drives Me</h2>
+            <ul style="padding-left: 1.2rem; list-style-type: disc; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Empowering users with intuitive tools</li>
+              <li style="margin-bottom: 0.5rem;">Mentoring the next generation of devs</li>
+              <li style="margin-bottom: 0.5rem;">Bridging AI, cloud, and UX</li>
+              <li style="margin-bottom: 0.5rem;">Continuous learning & sharing</li>
+            </ul>
+          </div>
+          <div>
+            <h2 style="font-size: 1.5rem; color: var(--primary-color);">Beyond Code</h2>
+            <ul style="padding-left: 1.2rem; list-style-type: disc; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.8rem;">
+                <strong>Mentorship:</strong> Recipient of the 2025 CS Teaching Assistant Excellence Award.
+              </li>
+              <li style="margin-bottom: 0.8rem;">
+                <strong>Sports:</strong> Avid Tennis & Table Tennis player.
+                <a href="https://app.utrsports.net/profiles/319794" target="_blank" rel="noopener"
+                  style="font-weight: 500;">See Tennis Profile</a>
+              </li>
+              <li style="margin-bottom: 0.8rem;">
+                <strong>Fitness:</strong> Powerlifting enthusiast, closing in on the 1,000-lb club.
+                <div style="margin-top: 0.4rem; display: flex; gap: 0.8rem; font-size: 0.9rem;">
+                  <span style="background: var(--bg-color); padding: 2px 8px; border-radius: 4px;">Bench: 275</span>
+                  <span style="background: var(--bg-color); padding: 2px 8px; border-radius: 4px;">Squat: 365</span>
+                  <span style="background: var(--bg-color); padding: 2px 8px; border-radius: 4px;">Deadlift: 335</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2024 Eissayou. All rights reserved.</p>
+    <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
   </footer>
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger-menu');
-    const nav = document.querySelector('.main-nav');
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  </script>
+
+  <script src="assets/script.js"></script>
 </body>
-</html> 
+
+</html>

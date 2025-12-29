@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="assets/je.png" sizes="32x32">
@@ -7,73 +8,98 @@
   <link rel="apple-touch-icon" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Jason Eissayou - Software Engineer & AI Enthusiast</title>
-  <meta name="description" content="Explore Jason Eissayou's software engineering projects including PCAP Tracker, FormFix, and Cat Classifier. AI-powered applications and web development projects.">
+  <meta name="description"
+    content="Explore Jason Eissayou's software engineering projects including Azure Honeypot Threat Map, FormFixAI, and PCAP Tracker. Focused on Cloud Security, AI, and Network Analysis.">
   <link rel="canonical" href="https://eissayou.com/projects.html">
   <meta property="og:title" content="Projects | Jason Eissayou - Software Engineer & AI Enthusiast">
-  <meta property="og:description" content="Explore Jason Eissayou's software engineering projects including PCAP Tracker, FormFix, and Cat Classifier. AI-powered applications and web development projects.">
+  <meta property="og:description"
+    content="Explore Jason Eissayou's software engineering projects including PCAP Tracker, FormFix, and Cat Classifier. AI-powered applications and web development projects.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://eissayou.com/projects.html">
   <meta property="og:image" content="https://eissayou.com/assets/profile.jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Projects | Jason Eissayou - Software Engineer & AI Enthusiast">
-  <meta name="twitter:description" content="Explore Jason Eissayou's software engineering projects including PCAP Tracker, FormFix, and Cat Classifier. AI-powered applications and web development projects.">
+  <meta name="twitter:description"
+    content="Explore Jason Eissayou's software engineering projects including PCAP Tracker, FormFix, and Cat Classifier. AI-powered applications and web development projects.">
   <meta name="twitter:image" content="https://eissayou.com/assets/profile.jpeg">
   <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
 <body>
   <header>
     <nav class="main-nav">
+      <a href="index.html"
+        style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary); text-decoration: none;">JE.</a>
       <div class="hamburger" id="hamburger-menu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul>
+      <ul id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <section class="projects-card">
-      <h1 class="projects-title"><i class="fa-solid fa-diagram-project"></i> Projects</h1>
+    <section class="card-section">
+      <h1 class="projects-title text-gradient">Featured Work</h1>
       <div class="project-list">
-        <div class="project">
-          <img src="assets/network-packets.png" alt="PCAP Tracker Preview" class="project-preview">
-          <h2>PCAP Tracker</h2>
-          <p>Analyze your PCAP files and visualize where your network packets are going in the world.</p>
-          <a class="project-btn" href="https://pcaptracker.site/" target="_blank" rel="noopener">Visit PCAP Tracker</a>
-        </div>
-        <div class="project">
-          <img src="assets/formFix.jpg" alt="FormFix Preview" class="project-preview">
-          <h2>FormFix</h2>
-          <p>Instantly analyze and improve your workout form with AI-powered insights.</p>
-          <a class="project-btn" href="https://formfix-hkaphfgdh3hza5a8.westus-01.azurewebsites.net" target="_blank" rel="noopener">Visit FormFix</a>
-        </div>
-        <div class="project">
-          <img src="assets/kitty.jpg" alt="Cat Classifier Preview" class="project-preview">
-          <h2>Cat Classifier</h2>
-          <p>Know your cat's breed with just one photo. Powered by AI that runs directly in your browser!</p>
-          <a class="project-btn" href="https://www.catclassifier.live/login" target="_blank" rel="noopener">Visit Cat Classifier</a>
-        </div>
+        <!-- Featured Project: Azure Honeypot -->
+        <article class="project featured-project">
+          <img src="assets/honeyPot.png" alt="Azure Honeypot Threat Map" class="project-preview">
+          <div class="project-content" style="flex:1;">
+            <h2>Azure Honeypot Threat Map</h2>
+            <p>A live SOC Dashboard visualizing global cyber attacks on an Azure honeypot. Features real-time attack
+              tracking, geolocation, and attacker statistics.</p>
+            <a class="project-btn" href="https://orange-wave-0061ed81e.6.azurestaticapps.net/" target="_blank"
+              rel="noopener">
+              View Live Dashboard
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2: FormFixAI -->
+        <article class="project">
+          <img src="assets/formFix.jpg" alt="FormFix AI Trainer" class="project-preview">
+          <div style="flex:1;">
+            <h2>FormFixAI</h2>
+            <p>AI-powered workout assistant utilizing MediaPipe and Gemini API for real-time posture correction. Built
+              with Python, Flask, and Azure AD B2C.</p>
+          </div>
+          <a class="project-btn" href="https://formfix-hkaphfgdh3hza5a8.westus-01.azurewebsites.net" target="_blank"
+            rel="noopener">
+            Try FormFixAI
+          </a>
+        </article>
+
+        <!-- Project 3: PCAP Tracker -->
+        <article class="project">
+          <img src="assets/network-packets.png" alt="PCAP Tracker Interface" class="project-preview">
+          <div style="flex:1;">
+            <h2>PCAP Tracker</h2>
+            <p>A network analysis tool that visualizes packet destinations on a global map. Analyze .pcap files to
+              understand traffic flow.</p>
+          </div>
+          <a class="project-btn" href="https://pcaptracker.site/" target="_blank" rel="noopener">
+            Launch App
+          </a>
+        </article>
       </div>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2024 Eissayou. All rights reserved.</p>
+    <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
   </footer>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger-menu');
-    const nav = document.querySelector('.main-nav');
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  </script>
+
+  <script src="assets/script.js"></script>
 </body>
-</html> 
+
+</html>

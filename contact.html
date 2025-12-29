@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="assets/je.png" sizes="32x32">
@@ -7,80 +8,94 @@
   <link rel="apple-touch-icon" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Jason Eissayou - Software Engineer & AI Enthusiast</title>
-  <meta name="description" content="Get in touch with Jason Eissayou for software engineering opportunities, collaborations, or questions. Contact form available for professional inquiries.">
+  <meta name="description"
+    content="Get in touch with Jason Eissayou for software engineering opportunities, collaborations, or questions. Contact form available for professional inquiries.">
   <link rel="canonical" href="https://eissayou.com/contact.html">
   <meta property="og:title" content="Contact | Jason Eissayou - Software Engineer & AI Enthusiast">
-  <meta property="og:description" content="Get in touch with Jason Eissayou for software engineering opportunities, collaborations, or questions. Contact form available for professional inquiries.">
+  <meta property="og:description"
+    content="Get in touch with Jason Eissayou for software engineering opportunities, collaborations, or questions. Contact form available for professional inquiries.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://eissayou.com/contact.html">
   <meta property="og:image" content="https://eissayou.com/assets/profile.jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact | Jason Eissayou - Software Engineer & AI Enthusiast">
-  <meta name="twitter:description" content="Get in touch with Jason Eissayou for software engineering opportunities, collaborations, or questions. Contact form available for professional inquiries.">
+  <meta name="twitter:description"
+    content="Get in touch with Jason Eissayou for software engineering opportunities, collaborations, or questions. Contact form available for professional inquiries.">
   <meta name="twitter:image" content="https://eissayou.com/assets/profile.jpeg">
   <link rel="stylesheet" href="assets/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
 <body>
   <header>
     <nav class="main-nav">
+      <a href="index.html"
+        style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary); text-decoration: none;">JE.</a>
       <div class="hamburger" id="hamburger-menu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul>
+      <ul id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <section class="contact-card contact-card-outer">
-      <h1 class="contact-title"><i class="fa-solid fa-envelope"></i> Contact Me</h1>
-      <div class="contact-card-inner">
+    <section class="card-section contact-card">
+      <h1 class="contact-title text-gradient">Get In Touch</h1>
+
+      <div style="max-width: 600px; margin: 0 auto; text-align: center; margin-bottom: 2.5rem;">
+        <p>
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+        </p>
+      </div>
+
+      <div class="contact-card-inner" style="max-width: 500px; margin: 0 auto;">
         <form action="https://formspree.io/f/xzzveyjp" method="POST" class="modern-form" id="contactForm">
           <div class="form-group">
-            <label for="name"><i class="fa-solid fa-user"></i> Name</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
           </div>
           <div class="form-group">
-            <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="email@example.com">
           </div>
           <div class="form-group">
-            <label for="message"><i class="fa-solid fa-message"></i> Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
           </div>
-          <button type="submit" class="modern-send-btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-          <div id="formSuccess" class="form-success" style="display:none;">Thank you! Your message has been sent.</div>
+          <button type="submit" class="modern-send-btn">Send Message</button>
+          <div id="formSuccess"
+            style="display:none; text-align:center; color: var(--primary-color); font-weight: 600; margin-top: 1rem;">
+            Thank you! Your message has been sent.
+          </div>
         </form>
-
       </div>
     </section>
+
     <script>
-      // Show a success message after form submission (for best UX)
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        setTimeout(function() {
+      // Show a success message after form submission
+      document.getElementById('contactForm').addEventListener('submit', function (e) {
+        // Note: Formspree usually handles redirect, but if ajax is used:
+        setTimeout(function () {
           document.getElementById('formSuccess').style.display = 'block';
         }, 500);
       });
     </script>
   </main>
+
   <footer>
-    <p>&copy; 2024 Eissayou. All rights reserved.</p>
+    <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
   </footer>
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger-menu');
-    const nav = document.querySelector('.main-nav');
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  </script>
+
+  <script src="assets/script.js"></script>
 </body>
-</html> 
+
+</html>
