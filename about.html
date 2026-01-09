@@ -75,55 +75,168 @@
 
   <main>
     <section class="card-section about">
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <img src="assets/profile.jpeg" alt="Profile Photo" class="profile-photo" style="width: 140px; height: 140px;">
-        <h1 class="text-gradient" style="margin-top: 1.5rem; font-size: 2.25rem;">About Me</h1>
+      <!-- Hero Section -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <img src="assets/profile.jpeg" alt="Profile Photo" class="profile-photo" style="width: 150px; height: 150px;">
+        <h1 class="text-gradient" style="margin-top: 1.5rem; font-size: 2.5rem;">About Me</h1>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 500px; margin: 0.5rem auto 0;">
+          Software Engineer & AI Enthusiast
+        </p>
       </div>
 
-      <div style="max-width: 700px; margin: 0 auto;">
-        <p class="about-bio" style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-          Hello! I'm Jason Eissayou, a passionate software engineer and AI enthusiast. I hold an MS in Computer Science
-          from UC Davis (GPA 3.83) and a BS in Computer Science from CSU Stanislaus (GPA 3.92). My journey has taken me
-          from IT support to teaching, research, and building impactful AI-powered web applications.
-        </p>
-        <p class="about-bio" style="font-size: 1.1rem; margin-bottom: 2.5rem;">
-          I love solving real-world problems with technology, whether it's building scalable cloud solutions, deploying
-          machine learning models, or creating interactive web experiences. My technical toolkit includes Python, Java,
-          JavaScript, SQL, Flask, Django, Next.js, Azure, Docker, and more.
-        </p>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <!-- Bio Section -->
+        <div style="margin-bottom: 3rem;">
+          <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); text-align: center;">
+            Hello! I'm Jason Eissayou, a passionate software engineer and AI enthusiast. I hold an <strong
+              style="color: var(--text-primary);">MS in Computer Science from UC Davis</strong> (GPA 3.83) and a
+            <strong style="color: var(--text-primary);">BS in Computer Science from CSU Stanislaus</strong> (GPA 3.92).
+            My journey has taken me from IT support to teaching, research, and building impactful AI-powered
+            applications.
+          </p>
+        </div>
 
-        <div class="about-columns"
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem;">
-          <div>
-            <h2 style="font-size: 1.5rem; color: var(--primary-color);">What Drives Me</h2>
-            <ul style="padding-left: 1.2rem; list-style-type: disc; color: var(--text-secondary);">
-              <li style="margin-bottom: 0.5rem;">Empowering users with intuitive tools</li>
-              <li style="margin-bottom: 0.5rem;">Mentoring the next generation of devs</li>
-              <li style="margin-bottom: 0.5rem;">Bridging AI, cloud, and UX</li>
-              <li style="margin-bottom: 0.5rem;">Continuous learning & sharing</li>
-            </ul>
+        <!-- Quick Facts -->
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 3rem;">
+          <div
+            style="background: var(--bg-color); padding: 1.25rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-light);">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎓</div>
+            <div style="font-weight: 600; color: var(--text-primary);">MS & BS</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">Computer Science</div>
           </div>
-          <div>
-            <h2 style="font-size: 1.5rem; color: var(--primary-color);">Beyond Code</h2>
-            <ul style="padding-left: 1.2rem; list-style-type: disc; color: var(--text-secondary);">
-              <li style="margin-bottom: 0.8rem;">
-                <strong>Mentorship:</strong> Recipient of the 2025 CS Teaching Assistant Excellence Award.
-              </li>
-              <li style="margin-bottom: 0.8rem;">
-                <strong>Sports:</strong> Avid Tennis & Table Tennis player.
-                <a href="https://app.utrsports.net/profiles/319794" target="_blank" rel="noopener"
-                  style="font-weight: 500;">See Tennis Profile</a>
-              </li>
-              <li style="margin-bottom: 0.8rem;">
-                <strong>Fitness:</strong> Powerlifting enthusiast, closing in on the 1,000-lb club.
-                <div style="margin-top: 0.4rem; display: flex; gap: 0.8rem; font-size: 0.9rem;">
-                  <span style="background: var(--bg-color); padding: 2px 8px; border-radius: 4px;">Bench: 275</span>
-                  <span style="background: var(--bg-color); padding: 2px 8px; border-radius: 4px;">Squat: 365</span>
-                  <span style="background: var(--bg-color); padding: 2px 8px; border-radius: 4px;">Deadlift: 335</span>
+          <div
+            style="background: var(--bg-color); padding: 1.25rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-light);">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div>
+            <div style="font-weight: 600; color: var(--text-primary);">5 Certs</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">Azure, Security+, Terraform</div>
+          </div>
+          <div
+            style="background: var(--bg-color); padding: 1.25rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-light);">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">💻</div>
+            <div style="font-weight: 600; color: var(--text-primary);">Full Stack</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">Cloud & AI Focus</div>
+          </div>
+          <div
+            style="background: var(--bg-color); padding: 1.25rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-light);">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏅</div>
+            <div style="font-weight: 600; color: var(--text-primary);">Award Winner</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">2025 TA Excellence</div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div
+          style="background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-paper) 100%); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 3rem; border: 1px solid var(--border-light);">
+          <h2
+            style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-code" style="color: var(--primary-color);"></i> Tech Stack
+          </h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); margin: 0; line-height: 1.8;">
+            Python, Java, C, JavaScript, SQL, KQL, Flask, Django, Next.js, Azure, Terraform, Docker, Kubernetes, LLM
+            Integration (Gemini/OpenAI), SIEM / SOAR, MediaPipe, PyTorch
+          </p>
+        </div>
+
+        <!-- What Drives Me & Beyond Code -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+          <!-- What Drives Me -->
+          <div
+            style="background: var(--bg-color); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <h2
+              style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fa-solid fa-rocket" style="color: var(--primary-color);"></i> What Drives Me
+            </h2>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div
+                  style="width: 40px; height: 40px; background: var(--bg-paper); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-light);">
+                  <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--primary-color);"></i>
                 </div>
-              </li>
-            </ul>
+                <span style="color: var(--text-secondary);">Empowering users with intuitive tools</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div
+                  style="width: 40px; height: 40px; background: var(--bg-paper); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-light);">
+                  <i class="fa-solid fa-users" style="color: var(--primary-color);"></i>
+                </div>
+                <span style="color: var(--text-secondary);">Mentoring the next generation of devs</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div
+                  style="width: 40px; height: 40px; background: var(--bg-paper); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-light);">
+                  <i class="fa-solid fa-cloud" style="color: var(--primary-color);"></i>
+                </div>
+                <span style="color: var(--text-secondary);">Bridging AI, cloud, and UX</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <div
+                  style="width: 40px; height: 40px; background: var(--bg-paper); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border-light);">
+                  <i class="fa-solid fa-book-open" style="color: var(--primary-color);"></i>
+                </div>
+                <span style="color: var(--text-secondary);">Continuous learning & sharing</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Beyond Code -->
+          <div
+            style="background: var(--bg-color); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light);">
+            <h2
+              style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fa-solid fa-heart" style="color: var(--primary-color);"></i> Beyond Code
+            </h2>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <!-- Mentorship -->
+              <div
+                style="background: var(--bg-paper); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <i class="fa-solid fa-award" style="color: #f59e0b;"></i>
+                  <strong style="color: var(--text-primary);">Mentorship</strong>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">
+                  Recipient of the 2025 CS Teaching Assistant Excellence Award
+                </p>
+              </div>
+              <!-- Sports -->
+              <div
+                style="background: var(--bg-paper); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <i class="fa-solid fa-table-tennis-paddle-ball" style="color: #10b981;"></i>
+                  <strong style="color: var(--text-primary);">Sports</strong>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">
+                  Avid Tennis & Table Tennis player
+                  <a href="https://app.utrsports.net/profiles/319794" target="_blank" rel="noopener"
+                    style="margin-left: 0.5rem; font-weight: 500;">View Profile →</a>
+                </p>
+              </div>
+              <!-- Fitness -->
+              <div
+                style="background: var(--bg-paper); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <i class="fa-solid fa-dumbbell" style="color: #ef4444;"></i>
+                  <strong style="color: var(--text-primary);">Fitness</strong>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 0.75rem 0;">
+                  Powerlifting enthusiast, closing in on the 1,000-lb club
+                </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <span
+                    style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; padding: 0.4rem 0.75rem; border-radius: 99px; font-size: 0.8rem; font-weight: 600;">Bench:
+                    275</span>
+                  <span
+                    style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; padding: 0.4rem 0.75rem; border-radius: 99px; font-size: 0.8rem; font-weight: 600;">Squat:
+                    365</span>
+                  <span
+                    style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); color: white; padding: 0.4rem 0.75rem; border-radius: 99px; font-size: 0.8rem; font-weight: 600;">Deadlift:
+                    335</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
