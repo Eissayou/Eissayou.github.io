@@ -7,21 +7,68 @@
   <link rel="icon" type="image/png" href="assets/je.png" sizes="16x16">
   <link rel="apple-touch-icon" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Jason Eissayou - Software Engineer & AI Enthusiast</title>
+  <title>Projects | Jason Eissayou - Cloud Security & AI Portfolio</title>
   <meta name="description"
-    content="Explore Jason Eissayou's software engineering projects including Azure Honeypot Threat Map, FormFixAI, and PCAP Tracker. Focused on Cloud Security, AI, and Network Analysis.">
+    content="Explore Jason Eissayou's engineering projects: Azure Honeypot Threat Map (SIEM/SOAR), FormFixAI (Computer Vision), and PCAP Tracker (Network Analysis).">
+  <meta name="keywords"
+    content="Jason Eissayou, Projects, Azure Honeypot, SIEM, SOAR, FormFixAI, PCAP Tracker, Cloud Security, AI">
   <link rel="canonical" href="https://eissayou.com/projects.html">
-  <meta property="og:title" content="Projects | Jason Eissayou - Software Engineer & AI Enthusiast">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projects | Jason Eissayou - Cloud Security & AI Portfolio">
   <meta property="og:description"
-    content="Explore Jason Eissayou's software engineering projects including PCAP Tracker, FormFix, and Cat Classifier. AI-powered applications and web development projects.">
+    content="Explore real-world projects in Cloud Security (`Azure Sentinel`), AI (`MediaPipe`), and Networking.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://eissayou.com/projects.html">
-  <meta property="og:image" content="https://eissayou.com/assets/profile.jpeg">
+  <meta property="og:image" content="https://eissayou.com/assets/honeyPot.png">
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Projects | Jason Eissayou - Software Engineer & AI Enthusiast">
+  <meta name="twitter:title" content="Projects | Jason Eissayou - Cloud Security & AI Portfolio">
   <meta name="twitter:description"
-    content="Explore Jason Eissayou's software engineering projects including PCAP Tracker, FormFix, and Cat Classifier. AI-powered applications and web development projects.">
-  <meta name="twitter:image" content="https://eissayou.com/assets/profile.jpeg">
+    content="Explore real-world projects in Cloud Security (`Azure Sentinel`), AI (`MediaPipe`), and Networking.">
+  <meta name="twitter:image" content="https://eissayou.com/assets/honeyPot.png">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Software Engineering Projects",
+      "description": "A collection of software projects by Jason Eissayou focusing on Cloud Security and AI.",
+      "author": {
+        "@type": "Person",
+        "name": "Jason Eissayou"
+      },
+      "hasPart": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Azure Honeypot Threat Map",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Cloud (Azure)",
+          "description": "Live SOC Dashboard visualizing global cyber attacks on an Azure honeypot.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "FormFixAI",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "description": "AI-powered workout assistant utilizing MediaPipe and Gemini API."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "PCAP Tracker",
+          "applicationCategory": "NetworkApplication",
+          "operatingSystem": "Web",
+          "description": "Network analysis tool that visualizes packet destinations on a global map."
+        }
+      ]
+    }
+  </script>
   <link rel="stylesheet" href="assets/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -54,27 +101,28 @@
         <!-- Featured Project: Azure Honeypot -->
         <article class="project featured-project">
           <img src="assets/honeyPot.png" alt="Azure Honeypot Threat Map" class="project-preview">
-          <div class="project-content" style="flex:1;">
+          <div style="flex:1;">
             <h2>Azure Honeypot Threat Map</h2>
             <p>A live SOC Dashboard visualizing global cyber attacks on an Azure honeypot. Features real-time attack
               tracking, geolocation, and attacker statistics.</p>
-            <a class="project-btn" href="https://orange-wave-0061ed81e.6.azurestaticapps.net/" target="_blank"
-              rel="noopener">
-              View Live Dashboard
-            </a>
           </div>
+          <a class="btn btn-primary" href="https://orange-wave-0061ed81e.6.azurestaticapps.net/" target="_blank"
+            rel="noopener" style="margin-top: 1rem;">
+            View Live Dashboard
+          </a>
         </article>
 
         <!-- Project 2: FormFixAI -->
         <article class="project">
-          <img src="assets/formFix.jpg" alt="FormFix AI Trainer" class="project-preview">
+          <img src="assets/formFix.jpg" alt="FormFix AI Trainer" class="project-preview"
+            style="background-color: #ffffff;">
           <div style="flex:1;">
             <h2>FormFixAI</h2>
             <p>AI-powered workout assistant utilizing MediaPipe and Gemini API for real-time posture correction. Built
               with Python, Flask, and Azure AD B2C.</p>
           </div>
-          <a class="project-btn" href="https://formfix-hkaphfgdh3hza5a8.westus-01.azurewebsites.net" target="_blank"
-            rel="noopener">
+          <a class="btn btn-primary" href="https://formfix-hkaphfgdh3hza5a8.westus-01.azurewebsites.net" target="_blank"
+            rel="noopener" style="margin-top: 1rem;">
             Try FormFixAI
           </a>
         </article>
@@ -87,7 +135,8 @@
             <p>A network analysis tool that visualizes packet destinations on a global map. Analyze .pcap files to
               understand traffic flow.</p>
           </div>
-          <a class="project-btn" href="https://pcaptracker.site/" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://pcaptracker.site/" target="_blank" rel="noopener"
+            style="margin-top: 1rem;">
             Launch App
           </a>
         </article>
