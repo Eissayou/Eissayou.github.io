@@ -1,70 +1,48 @@
-# SEO Improvements for Google Indexing
+# SEO Status & Action Checklist
 
-## Issues Identified and Fixed
+Last updated: 2026-07-01
 
-### 1. **Missing robots.txt file** ✅ FIXED
-- **Problem**: No robots.txt file existed, preventing search engines from understanding crawling rules
-- **Solution**: Created `robots.txt` with proper directives and sitemap references
+## The one thing that was silently hurting indexing (now fixed)
 
-### 2. **Missing sitemap.xml** ✅ FIXED
-- **Problem**: No sitemap to help search engines discover and index all pages
-- **Solution**: Created comprehensive `sitemap.xml` with all website pages
+The site is served at **`https://www.eissayou.com`** (the `CNAME` file says `www.eissayou.com`; the apex
+`eissayou.com` 301-redirects to www). But every canonical tag, `og:url`, sitemap entry, robots.txt sitemap
+line, and JSON-LD URL used the **non-www** host. Google was being told "the real copy of this page lives at
+a URL that redirects away from it" — a mixed signal that suppresses indexing.
 
-### 3. **Domain mismatch** ✅ FIXED
-- **Problem**: 
-  - CNAME file pointed to `www.eissayou.com`
-  - HTML meta tags used `https://eissayou.github.io/`
-  - This confusion prevented proper canonical URL establishment
-- **Solution**: Updated all HTML files to use consistent `https://eissayou.com/` domain
+**Fix applied:** every URL in the repo now uses `https://www.eissayou.com/...`.
+**Rule going forward:** never write a non-www `https://eissayou.com` URL in any file.
 
-### 4. **Missing SEO meta tags** ✅ FIXED
-- **Problem**: Several pages lacked proper meta descriptions, Open Graph tags, and Twitter Card tags
-- **Solution**: Added comprehensive SEO meta tags to all pages
+## What's in this overhaul
 
-## Files Created/Modified
+- ✅ Canonical/og/sitemap/robots/JSON-LD URLs unified on the www host
+- ✅ Sitemap `lastmod` refreshed; 3 new project pages added to it
+- ✅ Branded `404.html` (noindexed)
+- ✅ Image optimization: assets went 17.7 MB → ~0.5 MB; proper 1200×630 `og-image.jpg`; width/height/lazy attrs; font & CDN preconnects
+- ✅ Per-project detail pages: `projects/azure-honeypot.html`, `projects/formfixai.html`, `projects/pcap-tracker.html` (each with SoftwareApplication + BreadcrumbList schema)
+- ✅ Expanded achievements page (featured TA Excellence Award, Cal-Bridge, UNL research, certifications) + Person schema with award array, 5 credential objects, achievements ItemList, WebSite schema
+- ✅ Titles ≤60 chars + synced og/twitter tags, tuned descriptions, accessibility fixes (button hamburger, skip links, focus styles, contrast, reduced motion), real contact-form success/error handling
+- ✅ Fact fixes: FormFixAI no longer claims MediaPipe (it uses Gemini video analysis); dead pcaptracker.site link replaced with the GitHub repo
+- ✅ Release gate: JSON-LD parses on all pages, zero non-www URLs, unique titles/descriptions/canonicals, all internal links + anchors resolve, every page under 350 KB
 
-### New Files:
-- `robots.txt` - Search engine crawling directives
-- `sitemap.xml` - Site structure for search engines
-- `SEO_IMPROVEMENTS.md` - This documentation
+## What Jason must do after merging to main
 
-### Modified Files:
-- `index.html` - Updated domain references and meta tags
-- `about.html` - Updated domain references and meta tags
-- `projects.html` - Added complete SEO meta tags
-- `resume.html` - Added complete SEO meta tags
-- `blog.html` - Added complete SEO meta tags
-- `contact.html` - Added complete SEO meta tags
+GitHub Pages deploys from `main`, so none of this is live until merged.
 
-## Next Steps for Better Indexing
+1. **Google Search Console** (search.google.com/search-console):
+   - Add/verify the property `https://www.eissayou.com` (URL-prefix property; verify via the HTML-tag or
+     DNS method). If you previously verified the non-www property, keep it but do the work in the www one.
+   - Sitemaps → submit `https://www.eissayou.com/sitemap.xml`.
+   - URL Inspection → paste the homepage URL → **Request indexing**. Repeat for
+     `/achievements.html`, `/projects.html`, and each new project page.
+2. **Bing Webmaster Tools** (optional, 5 minutes): import the site from Search Console.
+3. **Backlinks — the biggest lever you control off-site:**
+   - Put `https://www.eissayou.com` on your GitHub profile (bio "website" field) and pin the repos.
+   - Add the site to your LinkedIn profile (Contact info → Website, and in the About section).
+   - When you post about projects on LinkedIn, link to the project page on your site, not just the live app.
+4. **Monitor:** Search Console → Pages report. Expect indexing to pick up within days-to-weeks after
+   requesting; the canonical fix removes the main blocker.
 
-### 1. **Submit to Google Search Console**
-- Add your domain to Google Search Console
-- Submit the sitemap.xml
-- Request indexing of your main pages
+## Notes
 
-### 2. **Verify Domain Ownership**
-- Ensure your CNAME is properly configured
-- Verify domain ownership in Google Search Console
-
-### 3. **Monitor Indexing**
-- Check Google Search Console for indexing status
-- Monitor for any crawl errors
-
-### 4. **Additional SEO Improvements** (Optional)
-- Add structured data markup for better rich snippets
-- Optimize image alt tags
-- Improve page load speed
-- Add internal linking between pages
-
-## Current SEO Status
-
-✅ **robots.txt** - Properly configured  
-✅ **sitemap.xml** - All pages included  
-✅ **Meta tags** - Complete on all pages  
-✅ **Canonical URLs** - Consistent domain usage  
-✅ **Open Graph** - Social media optimization  
-✅ **Twitter Cards** - Twitter sharing optimization  
-✅ **Schema markup** - Structured data present  
-
-Your website should now be properly configured for Google indexing!
+- `blog.html` is a legacy redirect stub → achievements; it's `noindex` and deliberately kept (old links keep working).
+- `meta keywords` tags are ignored by Google — harmless, but don't bother maintaining them.

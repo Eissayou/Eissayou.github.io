@@ -1,38 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://eissayou.com/</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://www.eissayou.com/</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://eissayou.com/about.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://www.eissayou.com/about.html</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eissayou.com/projects.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://www.eissayou.com/projects.html</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eissayou.com/resume.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://www.eissayou.com/resume.html</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eissayou.com/achievements.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://www.eissayou.com/achievements.html</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://eissayou.com/contact.html</loc>
-    <lastmod>2026-05-30</lastmod>
+    <loc>https://www.eissayou.com/contact.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.eissayou.com/projects/azure-honeypot.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.eissayou.com/projects/formfixai.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.eissayou.com/projects/pcap-tracker.html</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/assets/je.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/je.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/je.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azure Honeypot Threat Map | Jason Eissayou</title>
+  <meta name="description"
+    content="Case study: a Windows honeypot on Azure that captures RDP brute-force attacks and maps them live using Terraform, Log Analytics, Logic Apps, and KQL.">
+  <meta name="keywords"
+    content="Jason Eissayou, Azure Honeypot, Threat Map, RDP Brute Force, Terraform, Log Analytics, KQL, Logic Apps, Cloud Security, SOC Dashboard">
+  <link rel="canonical" href="https://www.eissayou.com/projects/azure-honeypot.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Azure Honeypot Threat Map | Jason Eissayou">
+  <meta property="og:description"
+    content="Case study: a Windows honeypot on Azure that captures RDP brute-force attacks and maps them live using Terraform, Log Analytics, Logic Apps, and KQL.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.eissayou.com/projects/azure-honeypot.html">
+  <meta property="og:image" content="https://www.eissayou.com/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Azure Honeypot Threat Map | Jason Eissayou">
+  <meta name="twitter:description"
+    content="Case study: a Windows honeypot on Azure that captures RDP brute-force attacks and maps them live using Terraform, Log Analytics, Logic Apps, and KQL.">
+  <meta name="twitter:image" content="https://www.eissayou.com/assets/og-image.jpg">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Azure Honeypot Threat Map",
+          "description": "Real-time visualization of RDP brute-force attacks against a Windows honeypot deployed in Azure, with attacks captured via Windows Security Events, processed by Azure Logic Apps, and plotted on an interactive world map.",
+          "url": "https://www.eissayou.com/projects/azure-honeypot.html",
+          "image": "https://www.eissayou.com/assets/honeyPot.png",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Cloud (Azure)",
+          "author": {
+            "@type": "Person",
+            "name": "Jason Eissayou",
+            "url": "https://www.eissayou.com/"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.eissayou.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.eissayou.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Azure Honeypot Threat Map",
+              "item": "https://www.eissayou.com/projects/azure-honeypot.html"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <nav class="main-nav">
+      <a href="/index.html"
+        class="logo">JE.</a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html" class="active">Projects</a></li>
+        <li><a href="/resume.html">Resume</a></li>
+        <li><a href="/achievements.html">Achievements</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="card-section">
+      <h1 class="text-gradient" style="margin-bottom: 0.5rem;">Azure Honeypot Threat Map</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+        A live SOC-style dashboard that maps real RDP brute-force attacks against a Windows honeypot I run in
+        Azure — built end to end with Terraform.
+      </p>
+
+      <img src="/assets/honeyPot.png" alt="Azure Honeypot Threat Map dashboard showing global attack markers"
+        width="615" height="800" loading="lazy" decoding="async"
+        style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-light); display: block; margin: 0 auto 2rem auto;">
+
+      <h2>Overview</h2>
+      <p>
+        I deployed a Windows Server 2022 virtual machine as a honeypot with Remote Desktop Protocol (RDP)
+        deliberately exposed to the internet. Within minutes of going live, automated scanners around the world began
+        hammering port 3389 with credential-guessing attempts. Every failed login gets captured as a Windows Security
+        Event, enriched with geolocation data, and plotted on an interactive world map — so I can watch who is
+        attacking, from where, and how often, as it happens.
+      </p>
+      <p>
+        My goal was to build a realistic, cloud-native security telemetry pipeline: not just catching attacks, but
+        collecting, processing, storing, and presenting them the way a real Security Operations Center (SOC)
+        dashboard would.
+      </p>
+
+      <h2>Architecture</h2>
+      <p>
+        Attack data flows through a fully managed Azure pipeline:
+      </p>
+      <p style="font-family: monospace; background: var(--bg-paper); border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1rem; overflow-x: auto;">
+        Attackers → RDP (3389) → Windows VM → Security Events → Log Analytics → Logic App → Blob Storage → Static Web App
+      </p>
+      <p>
+        The Azure Monitor Agent, configured through Data Collection Rules, forwards failed-login Security Events from
+        the VM into a Log Analytics workspace. An Azure Logic App runs KQL queries against that workspace to aggregate
+        attack data daily, then writes the results to Azure Blob Storage. The frontend — plain HTML/CSS/JavaScript with
+        Leaflet.js — is hosted on Azure Static Web Apps and reads the aggregated data to render the map, with GitHub
+        Actions handling continuous deployment.
+      </p>
+      <p>
+        I defined the entire environment as Infrastructure as Code: a single <code>terraform apply</code> stands up
+        the VM, networking, monitoring pipeline, and static web app.
+      </p>
+
+      <h2>Tech Stack</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+        <span class="pill-badge">Terraform</span>
+        <span class="pill-badge">Azure</span>
+        <span class="pill-badge">Windows Server 2022</span>
+        <span class="pill-badge">Azure Monitor Agent</span>
+        <span class="pill-badge">Log Analytics</span>
+        <span class="pill-badge">Logic Apps</span>
+        <span class="pill-badge">KQL</span>
+        <span class="pill-badge">Blob Storage</span>
+        <span class="pill-badge">Leaflet.js</span>
+        <span class="pill-badge">Azure Static Web Apps</span>
+        <span class="pill-badge">GitHub Actions</span>
+      </div>
+
+      <h2>Key Engineering Details</h2>
+      <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1.5rem;">
+        <li><strong style="color: var(--text-primary);">Infrastructure as Code:</strong> I provision the honeypot,
+          monitoring pipeline, and hosting entirely with Terraform, so I can rebuild or tear down the whole
+          environment with one command.</li>
+        <li><strong style="color: var(--text-primary);">Serverless data processing:</strong> an Azure Logic App runs
+          KQL against Log Analytics to aggregate attacks daily and publish results to Blob Storage — no servers to
+          maintain for the analytics tier.</li>
+        <li><strong style="color: var(--text-primary);">Interactive visualization:</strong> the Leaflet.js map uses
+          marker clustering for high-density attack regions and shows per-attacker details — IP address, geolocation,
+          attempt count, and targeted account names — with automatic data refresh.</li>
+        <li><strong style="color: var(--text-primary);">Deliberately weakened target:</strong> the honeypot uses an
+          open NSG allowing all inbound traffic, a disabled Windows Firewall, and exposed RDP. I weakened and
+          documented all of it on purpose — it's what makes the VM a magnet for scanners (and a config I would never
+          reuse in production).</li>
+        <li><strong style="color: var(--text-primary);">Automated deployment:</strong> GitHub Actions redeploys the
+          Static Web App frontend on every push.</li>
+      </ul>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2rem;">
+        <a class="btn btn-primary" href="https://orange-wave-0061ed81e.6.azurestaticapps.net/" target="_blank"
+          rel="noopener">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View Live Dashboard
+        </a>
+        <a class="btn btn-secondary" href="https://github.com/Eissayou/WheresMyRDPAttacker" target="_blank"
+          rel="noopener">
+          <i class="fab fa-github"></i> View source on GitHub
+        </a>
+        <a href="/projects.html" style="color: var(--text-secondary); font-weight: 500;">&larr; All projects</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+
+</html>
