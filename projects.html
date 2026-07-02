@@ -7,27 +7,25 @@
   <link rel="icon" type="image/png" href="assets/je.png" sizes="16x16">
   <link rel="apple-touch-icon" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Jason Eissayou - Software Developer | Cloud Security | Network Observability</title>
+  <title>Projects | Jason Eissayou — Cloud Security & AI</title>
   <meta name="description"
     content="Explore Jason Eissayou's projects in cloud security, AI, and network analysis: Azure Honeypot Threat Map, FormFixAI, and PCAP Tracker.">
-  <meta name="keywords"
-    content="Jason Eissayou, Projects, Azure Honeypot, SIEM, SOAR, FormFixAI, PCAP Tracker, Cloud Security, AI">
-  <link rel="canonical" href="https://eissayou.com/projects.html">
+  <link rel="canonical" href="https://www.eissayou.com/projects.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Projects | Jason Eissayou - Software Developer | Cloud Security | Network Observability">
+  <meta property="og:title" content="Projects | Jason Eissayou — Cloud Security & AI">
   <meta property="og:description"
-    content="Projects in Cloud Security (Azure Sentinel), AI (MediaPipe), and networking.">
+    content="Projects in Cloud Security (Azure Sentinel), AI (Gemini), and networking.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://eissayou.com/projects.html">
-  <meta property="og:image" content="https://eissayou.com/assets/honeyPot.png">
+  <meta property="og:url" content="https://www.eissayou.com/projects.html">
+  <meta property="og:image" content="https://www.eissayou.com/assets/og-image.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Projects | Jason Eissayou - Software Developer | Cloud Security | Network Observability">
+  <meta name="twitter:title" content="Projects | Jason Eissayou — Cloud Security & AI">
   <meta name="twitter:description"
-    content="Projects in Cloud Security (Azure Sentinel), AI (MediaPipe), and networking.">
-  <meta name="twitter:image" content="https://eissayou.com/assets/honeyPot.png">
+    content="Projects in Cloud Security (Azure Sentinel), AI (Gemini), and networking.">
+  <meta name="twitter:image" content="https://www.eissayou.com/assets/og-image.jpg">
 
   <script type="application/ld+json">
     {
@@ -43,9 +41,16 @@
         {
           "@type": "SoftwareApplication",
           "name": "Azure Honeypot Threat Map",
+          "url": "https://www.eissayou.com/projects/azure-honeypot.html",
+          "image": "https://www.eissayou.com/assets/honeyPot.png",
           "applicationCategory": "SecurityApplication",
           "operatingSystem": "Cloud (Azure)",
           "description": "Live SOC Dashboard visualizing global cyber attacks on an Azure honeypot.",
+          "author": {
+            "@type": "Person",
+            "name": "Jason Eissayou",
+            "url": "https://www.eissayou.com/"
+          },
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -55,34 +60,53 @@
         {
           "@type": "SoftwareApplication",
           "name": "FormFixAI",
+          "url": "https://www.eissayou.com/projects/formfixai.html",
+          "image": "https://www.eissayou.com/assets/formFix.jpg",
           "applicationCategory": "HealthApplication",
           "operatingSystem": "Web",
-          "description": "AI-powered workout assistant utilizing MediaPipe and Gemini API."
+          "description": "AI-powered workout assistant using Gemini video analysis on an event-driven Azure pipeline.",
+          "author": {
+            "@type": "Person",
+            "name": "Jason Eissayou",
+            "url": "https://www.eissayou.com/"
+          }
         },
         {
           "@type": "SoftwareApplication",
           "name": "PCAP Tracker",
+          "url": "https://www.eissayou.com/projects/pcap-tracker.html",
+          "image": "https://www.eissayou.com/assets/network-packets.png",
           "applicationCategory": "NetworkApplication",
           "operatingSystem": "Web",
-          "description": "Network analysis tool that visualizes packet destinations on a global map."
+          "description": "Network analysis tool that visualizes packet destinations on a global map.",
+          "author": {
+            "@type": "Person",
+            "name": "Jason Eissayou",
+            "url": "https://www.eissayou.com/"
+          }
         }
       ]
     }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap">
   <link rel="stylesheet" href="assets/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header>
     <nav class="main-nav">
       <a href="index.html"
-        style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary); text-decoration: none;">JE.</a>
-      <div class="hamburger" id="hamburger-menu">
+        class="logo">JE.</a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
       <ul id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -94,51 +118,68 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="card-section">
       <h1 class="projects-title text-gradient">Featured Work</h1>
       <div class="project-list">
         <!-- Featured Project: Azure Honeypot -->
         <article class="project featured-project">
-          <img src="assets/honeyPot.png" alt="Azure Honeypot Threat Map" class="project-preview">
+          <img src="assets/honeyPot.png" alt="Azure Honeypot Threat Map" class="project-preview" width="615"
+            height="800" loading="lazy" decoding="async">
           <div style="flex:1;">
             <h2>Azure Honeypot Threat Map</h2>
-            <p>A live SOC Dashboard visualizing global cyber attacks on an Azure honeypot. Features real-time attack
-              tracking, geolocation, and attacker statistics.</p>
+            <p>An Azure honeypot that draws real attacks, with a live dashboard for tracking them — geolocation,
+              attacker statistics, and real-time attack data.</p>
           </div>
-          <a class="btn btn-primary" href="https://orange-wave-0061ed81e.6.azurestaticapps.net/" target="_blank"
-            rel="noopener" style="margin-top: 1rem;">
-            View Live Dashboard
-          </a>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
+            <a class="btn btn-primary" href="https://orange-wave-0061ed81e.6.azurestaticapps.net/" target="_blank"
+              rel="noopener">
+              View Live Dashboard
+            </a>
+            <a class="btn btn-secondary" href="projects/azure-honeypot.html">
+              Read case study &rarr;
+            </a>
+          </div>
         </article>
 
         <!-- Project 2: FormFixAI -->
         <article class="project">
-          <img src="assets/formFix.jpg" alt="FormFix AI Trainer" class="project-preview"
-            style="background-color: #ffffff;">
+          <img src="assets/formFix.jpg" alt="FormFix AI Trainer" class="project-preview" width="640" height="640"
+            loading="lazy" decoding="async">
           <div style="flex:1;">
             <h2>FormFixAI</h2>
-            <p>AI-powered workout assistant utilizing MediaPipe and Gemini API for real-time posture correction. Built
-              with Python, Flask, and Azure AD B2C.</p>
+            <p>AI-powered workout assistant that analyzes exercise videos with Google Gemini on an event-driven Azure
+              pipeline. Built with Python, Flask, Azure Functions, and Azure AD B2C.</p>
           </div>
-          <a class="btn btn-primary" href="https://formfix-hkaphfgdh3hza5a8.westus-01.azurewebsites.net" target="_blank"
-            rel="noopener" style="margin-top: 1rem;">
-            Try FormFixAI
-          </a>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
+            <a class="btn btn-primary" href="https://formfix-hkaphfgdh3hza5a8.westus-01.azurewebsites.net"
+              target="_blank" rel="noopener">
+              Try FormFixAI
+            </a>
+            <a class="btn btn-secondary" href="projects/formfixai.html">
+              Read case study &rarr;
+            </a>
+          </div>
         </article>
 
         <!-- Project 3: PCAP Tracker -->
         <article class="project">
-          <img src="assets/network-packets.png" alt="PCAP Tracker Interface" class="project-preview">
+          <img src="assets/network-packets.png" alt="PCAP Tracker Interface" class="project-preview" width="1460"
+            height="730" loading="lazy" decoding="async">
           <div style="flex:1;">
             <h2>PCAP Tracker</h2>
             <p>A network analysis tool that visualizes packet destinations on a global map. Analyze .pcap files to
               understand traffic flow.</p>
           </div>
-          <a class="btn btn-primary" href="https://pcaptracker.site/" target="_blank" rel="noopener"
-            style="margin-top: 1rem;">
-            Launch App
-          </a>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
+            <a class="btn btn-primary" href="projects/pcap-tracker.html">
+              Read case study &rarr;
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/Eissayou/PcapExplorer" target="_blank"
+              rel="noopener">
+              <i class="fab fa-github"></i> View Source
+            </a>
+          </div>
         </article>
       </div>
     </section>

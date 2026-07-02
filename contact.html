@@ -7,25 +7,25 @@
   <link rel="icon" type="image/png" href="assets/je.png" sizes="16x16">
   <link rel="apple-touch-icon" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Jason Eissayou - Software Developer | Cloud Security | Network Observability</title>
+  <title>Contact Jason Eissayou | Software Developer</title>
   <meta name="description"
-    content="Contact Jason Eissayou for software development, cloud security, network observability, or AI project conversations.">
-  <link rel="canonical" href="https://eissayou.com/contact.html">
+    content="Contact Jason Eissayou for software development, cloud security, network observability, or AI project inquiries and collaborations.">
+  <link rel="canonical" href="https://www.eissayou.com/contact.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Contact | Jason Eissayou - Software Developer | Cloud Security | Network Observability">
+  <meta property="og:title" content="Contact Jason Eissayou | Software Developer">
   <meta property="og:description"
-    content="Reach out to Jason Eissayou about software development, cloud security, network observability, or AI projects.">
+    content="Contact Jason Eissayou for software development, cloud security, network observability, or AI project inquiries and collaborations.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://eissayou.com/contact.html">
-  <meta property="og:image" content="https://eissayou.com/assets/Jason_Eissayou.png">
+  <meta property="og:url" content="https://www.eissayou.com/contact.html">
+  <meta property="og:image" content="https://www.eissayou.com/assets/og-image.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact | Jason Eissayou - Software Developer | Cloud Security | Network Observability">
+  <meta name="twitter:title" content="Contact Jason Eissayou | Software Developer">
   <meta name="twitter:description"
-    content="Reach out about software development, cloud security, network observability, or AI projects.">
-  <meta name="twitter:image" content="https://eissayou.com/assets/Jason_Eissayou.png">
+    content="Contact Jason Eissayou for software development, cloud security, network observability, or AI project inquiries and collaborations.">
+  <meta name="twitter:image" content="https://www.eissayou.com/assets/og-image.jpg">
 
   <script type="application/ld+json">
     {
@@ -36,7 +36,8 @@
       "mainEntity": {
         "@type": "Person",
         "name": "Jason Eissayou",
-        "image": "https://eissayou.com/assets/Jason_Eissayou.png",
+        "url": "https://www.eissayou.com/",
+        "image": "https://www.eissayou.com/assets/jason-eissayou.jpg",
         "sameAs": [
           "https://linkedin.com/in/jason-eissayou/",
           "https://github.com/Eissayou"
@@ -44,20 +45,25 @@
       }
     }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap">
   <link rel="stylesheet" href="assets/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header>
     <nav class="main-nav">
       <a href="index.html"
-        style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary); text-decoration: none;">JE.</a>
-      <div class="hamburger" id="hamburger-menu">
+        class="logo">JE.</a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
       <ul id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -69,7 +75,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="card-section contact-card">
       <h1 class="contact-title text-gradient">Get In Touch</h1>
 
@@ -94,22 +100,58 @@
             <textarea id="message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-          <div id="formSuccess"
-            style="display:none; text-align:center; color: var(--primary-color); font-weight: 600; margin-top: 1rem;">
+          <div id="formSuccess" class="form-status form-status--success" role="status" aria-live="polite">
             Thank you! Your message has been sent.
+          </div>
+          <div id="formError" class="form-status form-status--error" role="status" aria-live="polite">
+            Something went wrong sending your message. Please try again in a minute.
           </div>
         </form>
       </div>
     </section>
 
     <script>
-      // Show a success message after form submission
-      document.getElementById('contactForm').addEventListener('submit', function (e) {
-        // Note: Formspree usually handles redirect, but if ajax is used:
-        setTimeout(function () {
-          document.getElementById('formSuccess').style.display = 'block';
-        }, 500);
-      });
+      // Submit the form via AJAX and show real success/error feedback.
+      // The form keeps its action attribute so no-JS users still POST to Formspree.
+      (function () {
+        var form = document.getElementById('contactForm');
+        var successMsg = document.getElementById('formSuccess');
+        var errorMsg = document.getElementById('formError');
+        if (!form || !successMsg || !errorMsg) return;
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+        if (!submitBtn) return;
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          successMsg.style.display = 'none';
+          errorMsg.style.display = 'none';
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          })
+            .then(function (res) {
+              if (res.ok) {
+                form.reset();
+                successMsg.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+              } else {
+                throw new Error('Submission failed');
+              }
+            })
+            .catch(function () {
+              errorMsg.style.display = 'block';
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Send Message';
+            });
+        });
+      })();
     </script>
   </main>
 

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/assets/je.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/je.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/je.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCAP Tracker: Network Traffic Map | Jason Eissayou</title>
+  <meta name="description"
+    content="Case study: PCAP Tracker, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
+  <meta name="keywords"
+    content="Jason Eissayou, PCAP Tracker, PcapExplorer, Go, gopacket, React, TypeScript, GeoIP, MaxMind GeoLite2, Network Analysis, Packet Capture">
+  <link rel="canonical" href="https://www.eissayou.com/projects/pcap-tracker.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="PCAP Tracker: Network Traffic Map | Jason Eissayou">
+  <meta property="og:description"
+    content="Case study: PCAP Tracker, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.eissayou.com/projects/pcap-tracker.html">
+  <meta property="og:image" content="https://www.eissayou.com/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PCAP Tracker: Network Traffic Map | Jason Eissayou">
+  <meta name="twitter:description"
+    content="Case study: PCAP Tracker, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
+  <meta name="twitter:image" content="https://www.eissayou.com/assets/og-image.jpg">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "PCAP Tracker",
+          "description": "Lightweight network traffic analyzer that lets you drag and drop PCAP files and instantly visualize where your packets are going, with a traffic timeline, top talkers, and GeoIP mapping on a world map.",
+          "url": "https://www.eissayou.com/projects/pcap-tracker.html",
+          "image": "https://www.eissayou.com/assets/network-packets.png",
+          "applicationCategory": "NetworkApplication",
+          "operatingSystem": "Web",
+          "author": {
+            "@type": "Person",
+            "name": "Jason Eissayou",
+            "url": "https://www.eissayou.com/"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.eissayou.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.eissayou.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "PCAP Tracker",
+              "item": "https://www.eissayou.com/projects/pcap-tracker.html"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <nav class="main-nav">
+      <a href="/index.html"
+        class="logo">JE.</a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html" class="active">Projects</a></li>
+        <li><a href="/resume.html">Resume</a></li>
+        <li><a href="/achievements.html">Achievements</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="card-section">
+      <h1 class="text-gradient" style="margin-bottom: 0.5rem;">PCAP Tracker</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+        A lightweight network traffic analyzer: drag and drop a PCAP file and instantly see where your packets are
+        going on a world map.
+      </p>
+
+      <img src="/assets/network-packets.png" alt="PCAP Tracker interface visualizing packet destinations on a global map"
+        width="1460" height="730" loading="lazy" decoding="async"
+        style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-light); display: block; margin: 0 auto 2rem auto;">
+
+      <h2>Overview</h2>
+      <p>
+        Wireshark is the gold standard for deep packet inspection, but firing it up just to answer "who is this
+        machine talking to?" is overkill. I built PCAP Tracker (published on GitHub as
+        <strong>PcapExplorer</strong>) out of exactly that frustration: sometimes I just want traffic patterns at a
+        glance, without wading through packet-level detail.
+      </p>
+      <p>
+        Drop in a <code>.pcap</code> or <code>.pcapng</code> capture, specify the IP you care about, and the tool
+        renders a traffic timeline of packets sent and received over time, a "top talkers" list of the most frequent
+        peer IPs, and an interactive world map showing where that traffic is geographically headed. Both IPv4 and
+        IPv6 are fully supported.
+      </p>
+
+      <h2>How It Works</h2>
+      <p>
+        I wrote the backend in Go, using Google's <code>gopacket</code> library to parse capture files. When you
+        upload a file along with a target IP, the server categorizes every packet as sent or received relative to
+        that host, then geolocates the top peer IPs using a local MaxMind GeoLite2 database — a free, offline lookup
+        with no external API calls, so captures never leave the machine. I built the frontend with React, TypeScript,
+        and Vite; it renders the timeline charts and the interactive map from the analysis results.
+      </p>
+      <p>
+        I kept local setup deliberately simple: clone the repo, drop the free GeoLite2-City database into the
+        <code>data/</code> directory, and <code>go run .</code> brings the app up at <code>localhost:5432</code>. I
+        also bundled a test-PCAP generator (<code>cmd/gen_pcap</code>) so I could produce sample capture files for
+        development without recording real traffic.
+      </p>
+
+      <h2>Tech Stack</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+        <span class="pill-badge">Go</span>
+        <span class="pill-badge">gopacket</span>
+        <span class="pill-badge">React</span>
+        <span class="pill-badge">TypeScript</span>
+        <span class="pill-badge">Vite</span>
+        <span class="pill-badge">MaxMind GeoLite2</span>
+      </div>
+
+      <h2>Key Engineering Details</h2>
+      <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1.5rem;">
+        <li><strong style="color: var(--text-primary);">Format detection via magic bytes:</strong> I detect PCAPNG
+          files by their <code>0x0A0D0D0A</code> magic-byte signature, so both classic PCAP and PCAPNG captures
+          work transparently.</li>
+        <li><strong style="color: var(--text-primary);">Offline GeoIP:</strong> geolocation runs against a local
+          MaxMind GeoLite2-City database instead of a paid API — no per-lookup cost, no rate limits, and capture data
+          stays private.</li>
+        <li><strong style="color: var(--text-primary);">Clean Go project layout:</strong> I keep parsing logic in a
+          dedicated <code>pkg/analyzer</code> package, GeoIP reading in <code>pkg/geoip</code>, and a
+          <code>cmd/gen_pcap</code> utility for generating test capture files.</li>
+        <li><strong style="color: var(--text-primary);">Graceful shutdown:</strong> the HTTP server implements Go's
+          graceful shutdown patterns so in-flight analyses complete cleanly on exit.</li>
+        <li><strong style="color: var(--text-primary);">Dual-stack support:</strong> full IPv4 and IPv6 packet
+          analysis, with sent/received categorization relative to any host in the capture.</li>
+      </ul>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2rem;">
+        <a class="btn btn-primary" href="https://github.com/Eissayou/PcapExplorer" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View source on GitHub
+        </a>
+        <a href="/projects.html" style="color: var(--text-secondary); font-weight: 500;">&larr; All projects</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+
+</html>

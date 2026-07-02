@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/assets/je.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/je.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/je.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormFixAI: AI Workout Form Analysis | Jason Eissayou</title>
+  <meta name="description"
+    content="Case study: FormFixAI analyzes workout videos with Google Gemini 2.5 on an event-driven Azure pipeline — Blob Storage, Functions, FFmpeg, and Cosmos DB.">
+  <meta name="keywords"
+    content="Jason Eissayou, FormFixAI, Gemini 2.5, Azure Functions, Event Grid, FFmpeg, Cosmos DB, Flask, Azure AD B2C, AI Fitness, Workout Form Analysis">
+  <link rel="canonical" href="https://www.eissayou.com/projects/formfixai.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="FormFixAI: AI Workout Form Analysis | Jason Eissayou">
+  <meta property="og:description"
+    content="Case study: FormFixAI analyzes workout videos with Google Gemini 2.5 on an event-driven Azure pipeline — Blob Storage, Functions, FFmpeg, and Cosmos DB.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.eissayou.com/projects/formfixai.html">
+  <meta property="og:image" content="https://www.eissayou.com/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FormFixAI: AI Workout Form Analysis | Jason Eissayou">
+  <meta name="twitter:description"
+    content="Case study: FormFixAI analyzes workout videos with Google Gemini 2.5 on an event-driven Azure pipeline — Blob Storage, Functions, FFmpeg, and Cosmos DB.">
+  <meta name="twitter:image" content="https://www.eissayou.com/assets/og-image.jpg">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "FormFixAI",
+          "description": "AI workout form analyzer that processes uploaded exercise videos through an event-driven Azure pipeline and Google Gemini 2.5, returning structured biomechanics feedback with form scores, timestamped improvements, and safety alerts.",
+          "url": "https://www.eissayou.com/projects/formfixai.html",
+          "image": "https://www.eissayou.com/assets/formFix.jpg",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "author": {
+            "@type": "Person",
+            "name": "Jason Eissayou",
+            "url": "https://www.eissayou.com/"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.eissayou.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.eissayou.com/projects.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "FormFixAI",
+              "item": "https://www.eissayou.com/projects/formfixai.html"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <nav class="main-nav">
+      <a href="/index.html"
+        class="logo">JE.</a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul id="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/projects.html" class="active">Projects</a></li>
+        <li><a href="/resume.html">Resume</a></li>
+        <li><a href="/achievements.html">Achievements</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="card-section">
+      <h1 class="text-gradient" style="margin-bottom: 0.5rem;">FormFixAI</h1>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+        An AI workout coach I built that analyzes exercise videos with Google Gemini 2.5 on an event-driven Azure
+        pipeline and sends back structured, timestamped biomechanics feedback.
+      </p>
+
+      <img src="/assets/formFix.jpg" alt="FormFixAI workout form analysis application"
+        width="640" height="640" loading="lazy" decoding="async"
+        style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-light); background-color: #ffffff; display: block; margin: 0 auto 2rem auto;">
+
+      <h2>Overview</h2>
+      <p>
+        Good exercise form is hard to check on your own: the mistakes that cause injury are often invisible from the
+        lifter's own point of view. FormFixAI lets you upload a video of your workout (MP4, MOV, AVI, or WebM) and
+        get back a full breakdown — a form score from 0 to 100, the exercise identified, the muscles worked, specific
+        improvements pinned to timestamps in the video, safety alerts, an assessed skill level, and suggested next
+        steps.
+      </p>
+      <p>
+        Instead of running pose-estimation models locally, the app sends the video directly to Google Gemini 2.5
+        with a structured biomechanics prompt. I include the user's profile context in that prompt — training goals,
+        known injuries, and body stats — so the feedback is personalized rather than generic.
+      </p>
+
+      <h2>Architecture</h2>
+      <p>
+        I built the whole system event-driven on Azure. Users sign in via Azure AD B2C and upload video through a
+        Flask app running on Azure App Service. The upload lands in Azure Blob Storage, which emits an Event Grid
+        event that triggers an Azure Function. The Function downloads the video and normalizes it with FFmpeg to
+        1280&times;720 at 12 FPS — a 50&ndash;80% file-size reduction that also cuts Gemini input tokens by roughly
+        60%, bringing each analysis in under $0.01.
+      </p>
+      <p>
+        The normalized video goes to Gemini 2.5 (Flash or Pro, depending on the user's subscription tier), which
+        returns structured JSON. Results land in Azure Cosmos DB while the frontend polls for completion. A
+        playback mode I call <strong>FormView</strong> then overlays the timestamped AI feedback directly on the video
+        as it plays. I trace the whole pipeline with Azure Application Insights and OpenTelemetry.
+      </p>
+
+      <h2>Tech Stack</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+        <span class="pill-badge">Python</span>
+        <span class="pill-badge">Flask</span>
+        <span class="pill-badge">Azure App Service</span>
+        <span class="pill-badge">Azure AD B2C</span>
+        <span class="pill-badge">Blob Storage</span>
+        <span class="pill-badge">Event Grid</span>
+        <span class="pill-badge">Azure Functions</span>
+        <span class="pill-badge">FFmpeg</span>
+        <span class="pill-badge">Gemini 2.5</span>
+        <span class="pill-badge">Cosmos DB</span>
+        <span class="pill-badge">Stripe</span>
+        <span class="pill-badge">Redis</span>
+        <span class="pill-badge">Application Insights</span>
+        <span class="pill-badge">OpenTelemetry</span>
+      </div>
+
+      <h2>Key Engineering Details</h2>
+      <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1.5rem;">
+        <li><strong style="color: var(--text-primary);">Keeping analysis cheap:</strong> FFmpeg
+          normalization (1280&times;720 @ 12 FPS) shrinks uploads 50&ndash;80% and cuts Gemini input tokens ~60%,
+          which keeps each full-video analysis under one cent.</li>
+        <li><strong style="color: var(--text-primary);">Structured AI output:</strong> Gemini returns strict JSON —
+          form score (0&ndash;100), exercise ID, muscles worked, timestamped improvements, safety alerts, skill level,
+          and next steps — so results are machine-consumable, not free-form text.</li>
+        <li><strong style="color: var(--text-primary);">Checking billing at every layer:</strong> I enforce Stripe
+          subscription tiers at three independent layers — Flask request validation, the Azure Function, and Cosmos DB
+          — backed by Redis rate limiting, CSRF protection, and SAS upload URLs that expire after 24 hours.</li>
+        <li><strong style="color: var(--text-primary);">Picking the right model:</strong> the pipeline selects Gemini
+          2.5 Flash or Pro per request based on the user's subscription tier, trading cost against analysis depth.</li>
+        <li><strong style="color: var(--text-primary);">No waiting around:</strong> uploads return immediately; the
+          frontend polls analysis status while the event-driven backend works, then renders FormView overlays on
+          playback.</li>
+      </ul>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2rem;">
+        <a class="btn btn-primary" href="https://formfix-hkaphfgdh3hza5a8.westus-01.azurewebsites.net" target="_blank"
+          rel="noopener">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Try FormFixAI
+        </a>
+        <a href="/projects.html" style="color: var(--text-secondary); font-weight: 500;">&larr; All projects</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
+  </footer>
+
+  <script src="/assets/script.js"></script>
+</body>
+
+</html>

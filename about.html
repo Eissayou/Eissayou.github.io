@@ -7,26 +7,25 @@
   <link rel="icon" type="image/png" href="assets/je.png" sizes="16x16">
   <link rel="apple-touch-icon" href="assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Jason Eissayou | Software Developer | Cloud Security | Network Observability</title>
+  <title>About Jason Eissayou | Software Developer</title>
   <meta name="description"
-    content="Learn about Jason Eissayou's background in software development, cloud security, and network observability. MS CS graduate from UC Davis, incoming at IBM SevOne.">
-  <meta name="keywords" content="Jason Eissayou, About, Bio, Cloud Security, AI, UC Davis, Software Engineer">
-  <link rel="canonical" href="https://eissayou.com/about.html">
+    content="Learn about Jason Eissayou's background in software development, cloud security, and network observability. MS CS from UC Davis, incoming at IBM SevOne.">
+  <link rel="canonical" href="https://www.eissayou.com/about.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="About Jason Eissayou | Software Developer | Cloud Security | Network Observability">
+  <meta property="og:title" content="About Jason Eissayou | Software Developer">
   <meta property="og:description"
-    content="How Jason Eissayou went from community college IT support to UC Davis, cloud security projects, and IBM SevOne.">
+    content="Learn about Jason Eissayou's background in software development, cloud security, and network observability. MS CS from UC Davis, incoming at IBM SevOne.">
   <meta property="og:type" content="profile">
-  <meta property="og:url" content="https://eissayou.com/about.html">
-  <meta property="og:image" content="https://eissayou.com/assets/profile-photo.JPG">
+  <meta property="og:url" content="https://www.eissayou.com/about.html">
+  <meta property="og:image" content="https://www.eissayou.com/assets/og-image.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Jason Eissayou | Software Developer | Cloud Security | Network Observability">
+  <meta name="twitter:title" content="About Jason Eissayou | Software Developer">
   <meta name="twitter:description"
-    content="From community college IT support to UC Davis, cloud security projects, and IBM SevOne.">
-  <meta name="twitter:image" content="https://eissayou.com/assets/profile-photo.JPG">
+    content="Learn about Jason Eissayou's background in software development, cloud security, and network observability. MS CS from UC Davis, incoming at IBM SevOne.">
+  <meta name="twitter:image" content="https://www.eissayou.com/assets/og-image.jpg">
 
   <script type="application/ld+json">
     {
@@ -42,9 +41,24 @@
           "name": "IBM",
           "sameAs": "https://www.ibm.com/"
         },
-        "alumniOf": "University of California, Davis",
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "University of California, Davis",
+            "sameAs": "https://www.ucdavis.edu/"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "California State University, Stanislaus",
+            "sameAs": "https://www.csustan.edu/"
+          }
+        ],
         "knowsAbout": ["Cloud Security", "Azure", "Terraform", "AI", "Python"],
-        "image": "https://eissayou.com/assets/profile-photo.JPG",
+        "image": "https://www.eissayou.com/assets/jason-eissayou.jpg",
+        "award": [
+          "2025 CS Teaching Assistant Excellence Award — UC Davis College of Engineering",
+          "Dean's List — CSU Stanislaus College of Science"
+        ],
         "sameAs": [
           "https://linkedin.com/in/jason-eissayou/",
           "https://github.com/Eissayou"
@@ -52,20 +66,25 @@
       }
     }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap">
   <link rel="stylesheet" href="assets/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <header>
     <nav class="main-nav">
       <a href="index.html"
-        style="font-weight: 700; font-size: 1.2rem; color: var(--text-primary); text-decoration: none;">JE.</a>
-      <div class="hamburger" id="hamburger-menu">
+        class="logo">JE.</a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
       <ul id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About</a></li>
@@ -77,15 +96,15 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="card-section about">
       <!-- Hero Section -->
       <div style="text-align: center; margin-bottom: 3rem;">
-        <img src="assets/profile-photo.JPG" alt="Jason Eissayou Profile Photo" class="profile-photo"
-          style="width: 150px; height: 150px; object-position: top;">
+        <img src="assets/profile-photo.jpg" alt="Portrait of Jason Eissayou, software developer" class="profile-photo" width="427"
+          height="640" style="width: 150px; height: 150px; object-position: top;">
         <h1 class="text-gradient" style="margin-top: 1.5rem; font-size: 2.5rem;">About Me</h1>
         <p
-          style="color: var(--text-secondary); font-size: clamp(0.95rem, 2.5vw, 1.1rem); max-width: 760px; margin: 0.5rem auto 0; white-space: nowrap;">
+          style="color: var(--text-secondary); font-size: clamp(0.95rem, 2.5vw, 1.1rem); max-width: 760px; margin: 0.5rem auto 0;">
           Software Developer | Cloud Security | Network Observability
         </p>
       </div>
@@ -113,8 +132,8 @@
           <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
             After graduating, I spent time building projects and sharpening my cloud security skills through CompTIA
             Security+, Terraform, and Azure certifications. Two projects I focused on most were an Azure honeypot that
-            captures RDP brute-force attempts and maps attacker origins, and FormFixAI, an Azure app that uses MediaPipe
-            to analyze workout videos and give form feedback.
+            captures RDP brute-force attempts and maps attacker origins, and FormFixAI, an Azure app that uses Google
+            Gemini 2.5 to analyze workout videos and give form feedback.
           </p>
           <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin: 0;">
             Right now I'm a Systems &amp; Programming Analyst at YCCD on contract through August. In September 2026,
@@ -124,7 +143,7 @@
 
         <!-- Quick Facts -->
         <div
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 3rem;">
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 1rem; margin-bottom: 3rem;">
           <div
             style="background: var(--bg-color); padding: 1.25rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-light);">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎓</div>
@@ -147,7 +166,7 @@
             style="background: var(--bg-color); padding: 1.25rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-light);">
             <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏅</div>
             <div style="font-weight: 600; color: var(--text-primary);">Award Winner</div>
-            <div style="font-size: 0.85rem; color: var(--text-secondary);">2025 TA Excellence</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">2025 CS Teaching Assistant Excellence Award</div>
           </div>
         </div>
 
@@ -165,7 +184,7 @@
         </div>
 
         <!-- What Drives Me & Beyond Code -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 2rem;">
 
           <!-- What Drives Me -->
           <div
