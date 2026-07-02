@@ -1,6 +1,6 @@
 # SEO Status & Action Checklist
 
-Last updated: 2026-07-01 (site overhaul branch `claude/wonderful-swanson-b072ee`)
+Last updated: 2026-07-01
 
 ## The one thing that was silently hurting indexing (now fixed)
 
