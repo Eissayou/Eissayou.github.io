@@ -113,7 +113,7 @@
       <h1 class="text-gradient" style="margin-bottom: 0.5rem;">Azure Honeypot Threat Map</h1>
       <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
         A live SOC-style dashboard that maps real RDP brute-force attacks against a Windows honeypot I run in
-        Azure — built end to end with Terraform.
+        Azure. I built the whole thing end to end with Terraform.
       </p>
 
       <img src="/assets/honeyPot.png" alt="Azure Honeypot Threat Map dashboard showing global attack markers"
@@ -125,13 +125,12 @@
         I deployed a Windows Server 2022 virtual machine as a honeypot with Remote Desktop Protocol (RDP)
         deliberately exposed to the internet. Within minutes of going live, automated scanners around the world began
         hammering port 3389 with credential-guessing attempts. Every failed login gets captured as a Windows Security
-        Event, enriched with geolocation data, and plotted on an interactive world map — so I can watch who is
+        Event, enriched with geolocation data, and plotted on an interactive world map, so I can watch who is
         attacking, from where, and how often, as it happens.
       </p>
       <p>
-        My goal was to build a realistic, cloud-native security telemetry pipeline: not just catching attacks, but
-        collecting, processing, storing, and presenting them the way a real Security Operations Center (SOC)
-        dashboard would.
+        My goal was to build a realistic, cloud-native security telemetry pipeline that collects, processes, stores,
+        and presents attacks the way a real Security Operations Center (SOC) dashboard would.
       </p>
 
       <h2>Architecture</h2>
@@ -144,9 +143,9 @@
       <p>
         The Azure Monitor Agent, configured through Data Collection Rules, forwards failed-login Security Events from
         the VM into a Log Analytics workspace. An Azure Logic App runs KQL queries against that workspace to aggregate
-        attack data daily, then writes the results to Azure Blob Storage. The frontend — plain HTML/CSS/JavaScript with
-        Leaflet.js — is hosted on Azure Static Web Apps and reads the aggregated data to render the map, with GitHub
-        Actions handling continuous deployment.
+        attack data daily, then writes the results to Azure Blob Storage. The frontend is plain HTML/CSS/JavaScript
+        with Leaflet.js, hosted on Azure Static Web Apps. It reads the aggregated data to render the map, and GitHub
+        Actions handles continuous deployment.
       </p>
       <p>
         I defined the entire environment as Infrastructure as Code: a single <code>terraform apply</code> stands up
@@ -174,15 +173,15 @@
           monitoring pipeline, and hosting entirely with Terraform, so I can rebuild or tear down the whole
           environment with one command.</li>
         <li><strong style="color: var(--text-primary);">Serverless data processing:</strong> an Azure Logic App runs
-          KQL against Log Analytics to aggregate attacks daily and publish results to Blob Storage — no servers to
-          maintain for the analytics tier.</li>
+          KQL against Log Analytics to aggregate attacks daily and publish results to Blob Storage, so there are no
+          servers to maintain for the analytics tier.</li>
         <li><strong style="color: var(--text-primary);">Interactive visualization:</strong> the Leaflet.js map uses
-          marker clustering for high-density attack regions and shows per-attacker details — IP address, geolocation,
-          attempt count, and targeted account names — with automatic data refresh.</li>
+          marker clustering for high-density attack regions and shows per-attacker details (IP address, geolocation,
+          attempt count, and targeted account names), with the data refreshing automatically.</li>
         <li><strong style="color: var(--text-primary);">Deliberately weakened target:</strong> the honeypot uses an
           open NSG allowing all inbound traffic, a disabled Windows Firewall, and exposed RDP. I weakened and
-          documented all of it on purpose — it's what makes the VM a magnet for scanners (and a config I would never
-          reuse in production).</li>
+          documented all of it on purpose, since that's what makes the VM a magnet for scanners. It's a config I would
+          never reuse in production.</li>
         <li><strong style="color: var(--text-primary);">Automated deployment:</strong> GitHub Actions redeploys the
           Static Web App frontend on every push.</li>
       </ul>

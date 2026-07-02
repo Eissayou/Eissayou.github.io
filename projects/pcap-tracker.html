@@ -138,8 +138,8 @@
       <p>
         I wrote the backend in Go, using Google's <code>gopacket</code> library to parse capture files. When you
         upload a file along with a target IP, the server categorizes every packet as sent or received relative to
-        that host, then geolocates the top peer IPs using a local MaxMind GeoLite2 database — a free, offline lookup
-        with no external API calls, so captures never leave the machine. I built the frontend with React, TypeScript,
+        that host, then geolocates the top peer IPs using a local MaxMind GeoLite2 database. It's a free, offline
+        lookup with no external API calls, so captures never leave the machine. I built the frontend with React, TypeScript,
         and Vite; it renders the timeline charts and the interactive map from the analysis results.
       </p>
       <p>
@@ -165,7 +165,7 @@
           files by their <code>0x0A0D0D0A</code> magic-byte signature, so both classic PCAP and PCAPNG captures
           work transparently.</li>
         <li><strong style="color: var(--text-primary);">Offline GeoIP:</strong> geolocation runs against a local
-          MaxMind GeoLite2-City database instead of a paid API — no per-lookup cost, no rate limits, and capture data
+          MaxMind GeoLite2-City database instead of a paid API. No per-lookup cost, no rate limits, and capture data
           stays private.</li>
         <li><strong style="color: var(--text-primary);">Clean Go project layout:</strong> I keep parsing logic in a
           dedicated <code>pkg/analyzer</code> package, GeoIP reading in <code>pkg/geoip</code>, and a
