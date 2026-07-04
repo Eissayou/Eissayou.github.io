@@ -7,26 +7,26 @@
   <link rel="icon" type="image/png" href="/assets/je.png" sizes="16x16">
   <link rel="apple-touch-icon" href="/assets/je.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PCAP Tracker: Network Traffic Map | Jason Eissayou</title>
+  <title>PCAP Explorer: Network Traffic Map | Jason Eissayou</title>
   <meta name="description"
-    content="Case study: PCAP Tracker, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
+    content="Case study: PCAP Explorer, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
   <meta name="keywords"
-    content="Jason Eissayou, PCAP Tracker, PcapExplorer, Go, gopacket, React, TypeScript, GeoIP, MaxMind GeoLite2, Network Analysis, Packet Capture">
+    content="Jason Eissayou, PCAP Explorer, PcapExplorer, Go, gopacket, React, TypeScript, GeoIP, MaxMind GeoLite2, Network Analysis, Packet Capture">
   <link rel="canonical" href="https://www.eissayou.com/projects/pcap-tracker.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="PCAP Tracker: Network Traffic Map | Jason Eissayou">
+  <meta property="og:title" content="PCAP Explorer: Network Traffic Map | Jason Eissayou">
   <meta property="og:description"
-    content="Case study: PCAP Tracker, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
+    content="Case study: PCAP Explorer, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.eissayou.com/projects/pcap-tracker.html">
   <meta property="og:image" content="https://www.eissayou.com/assets/og-image.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PCAP Tracker: Network Traffic Map | Jason Eissayou">
+  <meta name="twitter:title" content="PCAP Explorer: Network Traffic Map | Jason Eissayou">
   <meta name="twitter:description"
-    content="Case study: PCAP Tracker, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
+    content="Case study: PCAP Explorer, a Go and React tool that parses .pcap files with gopacket and maps traffic destinations on a world map via MaxMind GeoLite2.">
   <meta name="twitter:image" content="https://www.eissayou.com/assets/og-image.jpg">
 
   <script type="application/ld+json">
@@ -35,7 +35,7 @@
       "@graph": [
         {
           "@type": "SoftwareApplication",
-          "name": "PCAP Tracker",
+          "name": "PCAP Explorer",
           "description": "Lightweight network traffic analyzer that lets you drag and drop PCAP files and instantly visualize where your packets are going, with a traffic timeline, top talkers, and GeoIP mapping on a world map.",
           "url": "https://www.eissayou.com/projects/pcap-tracker.html",
           "sameAs": "https://pcap-explorer.whitesmoke-6fe9a4df.westus2.azurecontainerapps.io",
@@ -71,7 +71,7 @@
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "PCAP Tracker",
+              "name": "PCAP Explorer",
               "item": "https://www.eissayou.com/projects/pcap-tracker.html"
             }
           ]
@@ -111,22 +111,21 @@
 
   <main id="main">
     <section class="card-section">
-      <h1 class="text-gradient" style="margin-bottom: 0.5rem;">PCAP Tracker</h1>
+      <h1 class="text-gradient" style="margin-bottom: 0.5rem;">PCAP Explorer</h1>
       <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
         A lightweight network traffic analyzer: drag and drop a PCAP file and instantly see where your packets are
         going on a world map.
       </p>
 
-      <img src="/assets/network-packets.png" alt="PCAP Tracker interface visualizing packet destinations on a global map"
+      <img src="/assets/network-packets.png" alt="PCAP Explorer interface visualizing packet destinations on a global map"
         width="1460" height="730" loading="lazy" decoding="async"
         style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-light); display: block; margin: 0 auto 2rem auto;">
 
       <h2>Overview</h2>
       <p>
         Wireshark is the gold standard for deep packet inspection, but firing it up just to answer "who is this
-        machine talking to?" is overkill. I built PCAP Tracker (published on GitHub as
-        <strong>PcapExplorer</strong>) out of exactly that frustration: sometimes I just want traffic patterns at a
-        glance, without wading through packet-level detail.
+        machine talking to?" is overkill. I built <strong>PCAP Explorer</strong> out of exactly that frustration:
+        sometimes I just want traffic patterns at a glance, without wading through packet-level detail.
       </p>
       <p>
         Drop in a <code>.pcap</code> or <code>.pcapng</code> capture, specify the IP you care about, and the tool
