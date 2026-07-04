@@ -247,6 +247,30 @@ main {
   transform: translateY(0) scale(0.98);
 }
 
+/* Back link (e.g. "← All projects" on project detail pages).
+   Uses flex + fit-content so it always sits on its own line (the page H1 is
+   display:inline-block) while keeping the hover/click target text-width. */
+.back-link {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+}
+
+@media (hover: hover) {
+  .back-link:hover {
+    transform: translateX(-3px);
+  }
+}
+
 /* Social Icon Buttons */
 .connect-btn {
   display: inline-flex;
