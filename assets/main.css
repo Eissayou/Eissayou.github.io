@@ -914,6 +914,160 @@ textarea:focus-visible {
 }
 
 /* =========================================
+   PROFILE PHOTO ALBUM LIGHTBOX (index.html)
+   ========================================= */
+
+/* Button wrapper around the hero profile photo */
+.profile-photo-btn {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile-photo-btn .profile-photo {
+  margin: 0;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(9, 9, 11, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-intro {
+  color: #f4f4f5;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 0 1.25rem;
+  max-width: 90vw;
+}
+
+.lightbox-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(92vw, 700px);
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: min(68vh, 640px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: pan-y;
+}
+
+.lightbox-caption {
+  color: #a1a1aa;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0.9rem 0 0;
+  min-height: 1.4em;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f4f5;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f4f5;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  z-index: 1;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lightbox-arrow--prev {
+  left: -0.5rem;
+}
+
+.lightbox-arrow--next {
+  right: -0.5rem;
+}
+
+@media (min-width: 900px) {
+  .lightbox-arrow--prev {
+    left: -3.5rem;
+  }
+
+  .lightbox-arrow--next {
+    right: -3.5rem;
+  }
+}
+
+.lightbox-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+}
+
+.lightbox-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.lightbox-dot[aria-current="true"] {
+  background: #f4f4f5;
+  transform: scale(1.25);
+}
+
+/* =========================================
    ACHIEVEMENT PREVIEW CARDS (achievements.html)
    ========================================= */
 
