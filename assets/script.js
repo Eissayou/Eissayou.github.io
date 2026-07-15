@@ -69,6 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
         caption: 'Receiving the TA Excellence Award at UC Davis'
       },
       {
+        src: 'assets/album/jason-eissayou-hackdavis-visual-tales.jpg',
+        alt: 'Jason Eissayou presenting Visual Tales at the HackDavis 2023 hackathon at UC Davis',
+        caption: 'Building Visual Tales at HackDavis 2023'
+      },
+      {
         src: 'assets/album/jason-eissayou-tennis.jpg',
         alt: 'Jason Eissayou playing tennis at a Laguna Creek Sports Club tournament',
         caption: 'Tournament at Laguna Creek Sports Club'
