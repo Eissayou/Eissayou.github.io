@@ -54,9 +54,21 @@
   </url>
   <url>
     <loc>https://www.eissayou.com/achievements.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.eissayou.com/assets/achievements/chatpt-demo.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.eissayou.com/assets/achievements/visual-tales.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.eissayou.com/assets/achievements/ita-juco-rankings.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.eissayou.com/assets/achievements/kcra-interview.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.eissayou.com/contact.html</loc>
@@ -78,7 +90,7 @@
   </url>
   <url>
     <loc>https://www.eissayou.com/projects/pcap-tracker.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
