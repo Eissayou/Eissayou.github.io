@@ -194,62 +194,114 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ---------------------------------------------------------------
-// Live honeypot stat (home featured card)
-// Reads the honeypot's public daily file for yesterday (Pacific time,
-// the same day boundary the threat map uses). If anything fails, the
-// static fallback text in the HTML stays put.
+// Live honeypot stat (home featured card + projects card)
+// Reads the honeypot's public daily files (one per Pacific-time day,
+// rewritten every 30 minutes by the Logic App). Row 1: today so far +
+// how long ago the last attempt was. Row 2: yesterday's full total,
+// labeled with its date. If anything fails, the static text stays.
 // ---------------------------------------------------------------
 (function () {
-  const textEl = document.getElementById('honeypot-live-text');
-  if (!textEl || !window.fetch) return;
+  const boxes = document.querySelectorAll('.js-honeypot-live');
+  if (!boxes.length || !window.fetch) return;
 
   const BLOB = 'https://honeypotpublicdata.blob.core.windows.net/public-data/attacks_';
   const fmtDay = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' });
+  const fmtLabel = new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' });
+  const num = new Intl.NumberFormat('en-US');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Pacific date (YYYY-MM-DD), shifted by whole days, same as the threat map.
   const pacificDate = (offsetDays) => {
     const [y, m, d] = fmtDay.format(new Date()).split('-').map(Number);
     return new Date(Date.UTC(y, m - 1, d + offsetDays)).toISOString().slice(0, 10);
   };
-  const num = new Intl.NumberFormat('en-US');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dayLabel = (iso) => fmtLabel.format(new Date(`${iso}T12:00:00Z`)); // "Fri, Nov 6"
 
-  const tryDay = async (offset) => {
-    const res = await fetch(`${BLOB}${pacificDate(offset)}.json`, { cache: 'no-cache' });
+  const load = async (iso) => {
+    const res = await fetch(`${BLOB}${iso}.json`, { cache: 'no-cache' });
     if (!res.ok) throw new Error(res.status);
     const rows = await res.json();
     if (!Array.isArray(rows) || !rows.length) throw new Error('empty');
     return rows;
   };
 
-  const render = (rows, offset) => {
-    const attempts = rows.reduce((sum, r) => sum + (Number(r.attack_count) || 0), 0);
-    const ips = new Set(rows.map((r) => r.ip)).size;
-    const countries = new Set(rows.map((r) => r.country).filter(Boolean)).size;
-    const when = offset === -1 ? 'yesterday' : 'in one day';
-    textEl.innerHTML =
-      `<strong id="honeypot-live-count">${num.format(attempts)}</strong> ` +
-      `RDP login attempts ${when} from ${num.format(ips)} IPs in ${num.format(countries)} countries`;
-    if (reduceMotion || document.visibilityState !== 'visible') return;
-    // The final number is already in the DOM; the count-up only starts once
-    // the browser actually paints (rAF), so a hidden tab or a renderer that
-    // never fires rAF still shows the real total rather than 0.
-    const countEl = document.getElementById('honeypot-live-count');
+  const summarize = (rows) => ({
+    attempts: rows.reduce((sum, r) => sum + (Number(r.attack_count) || 0), 0),
+    ips: new Set(rows.map((r) => r.ip)).size,
+    countries: new Set(rows.map((r) => r.country).filter(Boolean)).size,
+    lastSeen: Math.max(...rows.map((r) => Date.parse(r.last_seen) || 0)),
+  });
+
+  const ago = (ms) => {
+    const mins = Math.floor((Date.now() - ms) / 60000);
+    if (!(mins >= 0)) return '';
+    if (mins < 1) return 'just now';
+    if (mins < 60) return `${mins} min ago`;
+    const hrs = Math.floor(mins / 60);
+    return hrs < 24 ? `${hrs} hr ago` : '';
+  };
+
+  const strong = (n) => `<strong data-count="${n}">${num.format(n)}</strong>`;
+
+  // Count up from 0 once the browser paints. The real totals are already in
+  // the DOM, so hidden tabs and crawlers never see a partial number.
+  const countUp = (els) => {
+    if (reduceMotion || document.visibilityState !== 'visible' || !els.length) return;
     const DURATION = 1200;
     let start;
     const tick = (now) => {
       if (start === undefined) start = now;
       const t = Math.min(1, (now - start) / DURATION);
-      countEl.textContent = num.format(Math.round(attempts * (1 - Math.pow(1 - t, 3))));
+      const k = 1 - Math.pow(1 - t, 3);
+      els.forEach((el) => { el.textContent = num.format(Math.round(el.dataset.count * k)); });
       if (t < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
-    // If the tab is hidden mid-animation, rAF pauses; snap to the real total.
     document.addEventListener('visibilitychange', () => {
-      countEl.textContent = num.format(attempts);
+      els.forEach((el) => { el.textContent = num.format(Number(el.dataset.count)); });
     }, { once: true });
   };
 
-  tryDay(-1)
-    .then((rows) => render(rows, -1))
-    .catch(() => tryDay(-2).then((rows) => render(rows, -2)))
-    .catch(() => { /* keep the static fallback text */ });
+  const todayIso = pacificDate(0);
+  const yIso = pacificDate(-1);
+
+  Promise.allSettled([load(todayIso), load(yIso)]).then(([t, y]) => {
+    const today = t.status === 'fulfilled' ? summarize(t.value) : null;
+    const yday = y.status === 'fulfilled' ? summarize(y.value) : null;
+    if (!today && !yday) return; // keep the static fallback text
+
+    const yText = yday
+      ? `Yesterday (${dayLabel(yIso)}): ${strong(yday.attempts)} from ${num.format(yday.ips)} IPs in ${num.format(yday.countries)} countries`
+      : '';
+    let mainHtml;
+    let subHtml = '';
+    if (today) {
+      const when = ago(today.lastSeen);
+      mainHtml = `${strong(today.attempts)} RDP login attempts today` +
+        (when ? ` · last one <span class="live-stat__ago">${when}</span>` : '');
+      subHtml = yText;
+    } else {
+      mainHtml = yText; // just after midnight PT, before today's first file lands
+    }
+
+    const counters = [];
+    boxes.forEach((box) => {
+      box.querySelector('.live-stat__main').innerHTML = mainHtml;
+      const sub = box.querySelector('.live-stat__sub');
+      if (sub) {
+        sub.innerHTML = subHtml ? `<span>${subHtml}</span>` : '';
+        sub.hidden = !subHtml;
+      }
+      counters.push(...box.querySelectorAll('strong[data-count]'));
+    });
+    countUp(counters);
+
+    // Keep "last one N min ago" honest while the page stays open.
+    if (today) {
+      setInterval(() => {
+        const when = ago(today.lastSeen);
+        document.querySelectorAll('.live-stat__ago').forEach((el) => { el.textContent = when; });
+      }, 60000);
+    }
+  });
 })();

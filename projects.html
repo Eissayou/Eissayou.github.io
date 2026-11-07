@@ -97,7 +97,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap">
-  <link rel="stylesheet" href="assets/main.css?v=20261107">
+  <link rel="stylesheet" href="assets/main.css?v=20261107b">
 </head>
 
 <body>
@@ -134,6 +134,13 @@
             <h2>Azure Honeypot Threat Map</h2>
             <p>An Azure honeypot that draws real attacks, with a live dashboard showing geolocation,
               attacker statistics, and real-time attack data.</p>
+            <div class="live-stat js-honeypot-live">
+              <div class="live-stat__row">
+                <span class="live-dot" aria-hidden="true"></span>
+                <span class="live-stat__main">Live attack data, refreshed every 30 minutes</span>
+              </div>
+              <div class="live-stat__row live-stat__sub" hidden></div>
+            </div>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
             <a class="btn btn-primary" href="https://honeypot.eissayou.com" target="_blank"
@@ -202,7 +209,7 @@
     <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
   </footer>
 
-  <script src="assets/script.js?v=20261107"></script>
+  <script src="assets/script.js?v=20261107b"></script>
 </body>
 
 </html>

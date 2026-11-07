@@ -240,7 +240,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="assets/jason-eissayou.jpg?v=20261030">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap">
-  <link rel="stylesheet" href="assets/main.css?v=20261107">
+  <link rel="stylesheet" href="assets/main.css?v=20261107b">
 </head>
 
 <body>
@@ -370,9 +370,12 @@
                 A real-time world map of attacks hitting a honeypot I run in Azure. Built with Terraform, Azure
                 Log Analytics, KQL, and Logic Apps to track and geolocate RDP brute-force attempts.
               </p>
-              <div class="live-stat" id="honeypot-live">
-                <span class="live-dot" aria-hidden="true"></span>
-                <span id="honeypot-live-text">Live attack data, updated daily</span>
+              <div class="live-stat js-honeypot-live">
+                <div class="live-stat__row">
+                  <span class="live-dot" aria-hidden="true"></span>
+                  <span class="live-stat__main">Live attack data, refreshed every 30 minutes</span>
+                </div>
+                <div class="live-stat__row live-stat__sub" hidden></div>
               </div>
               <div class="featured-badges"
                 style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
@@ -444,7 +447,7 @@
     <p>&copy; 2026 Jason Eissayou. All rights reserved.</p>
   </footer>
 
-  <script src="assets/script.js?v=20261107"></script>
+  <script src="assets/script.js?v=20261107b"></script>
 </body>
 
 </html>

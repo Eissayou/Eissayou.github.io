@@ -517,20 +517,36 @@ header {
   margin: 0 auto;
 }
 
-/* Live honeypot stat (home featured card) */
+/* Live honeypot stat (home featured card + projects card) */
 .live-stat {
   display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+  flex-direction: column;
+  gap: 0.3rem;
   margin: 0 0 1rem 0;
-  padding: 0.45rem 0.9rem;
-  border-radius: 99px;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-lg);
   border: 1px solid rgba(239, 68, 68, 0.35);
   background: rgba(239, 68, 68, 0.08);
   color: var(--text-secondary);
   font-size: 0.85rem;
-  line-height: 1.4;
+  line-height: 1.45;
   text-align: left;
+}
+
+.live-stat__row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.live-stat__row[hidden] {
+  display: none;
+}
+
+/* Second row lines up with the text of the first, not the dot */
+.live-stat__sub {
+  padding-left: calc(8px + 0.6rem);
+  font-size: 0.8rem;
 }
 
 .live-stat strong {
@@ -541,11 +557,13 @@ header {
 
 .live-dot {
   position: relative;
+  top: -1px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #ef4444;
   flex-shrink: 0;
+  align-self: center;
 }
 
 .live-dot::after {
