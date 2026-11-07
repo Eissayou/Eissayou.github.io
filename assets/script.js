@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Live honeypot stat (home featured card + projects card)
 // Reads the honeypot's public daily files (one per Pacific-time day,
 // rewritten every 30 minutes by the Logic App). Row 1: today so far +
-// how long ago the last attempt was. Row 2: yesterday's full total,
+// when the data was last updated. Row 2: yesterday's full total,
 // labeled with its date. If anything fails, the static text stays.
 // ---------------------------------------------------------------
 (function () {
@@ -222,6 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!res.ok) throw new Error(res.status);
     const rows = await res.json();
     if (!Array.isArray(rows) || !rows.length) throw new Error('empty');
+    // When Azure last saved the file (the Logic App rewrites it every 30 min).
+    rows.savedAt = Date.parse(res.headers.get('Last-Modified')) || 0;
     return rows;
   };
 
@@ -229,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     attempts: rows.reduce((sum, r) => sum + (Number(r.attack_count) || 0), 0),
     ips: new Set(rows.map((r) => r.ip)).size,
     countries: new Set(rows.map((r) => r.country).filter(Boolean)).size,
-    lastSeen: Math.max(...rows.map((r) => Date.parse(r.last_seen) || 0)),
+    savedAt: rows.savedAt,
   });
 
   const ago = (ms) => {
@@ -276,9 +278,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let mainHtml;
     let subHtml = '';
     if (today) {
-      const when = ago(today.lastSeen);
+      const when = ago(today.savedAt);
       mainHtml = `${strong(today.attempts)} RDP login attempts today` +
-        (when ? ` · latest attack <span class="live-stat__ago">${when}</span>` : '');
+        (when ? ` · updated <span class="live-stat__ago">${when}</span>` : '');
       subHtml = yText;
     } else {
       mainHtml = yText; // just after midnight PT, before today's first file lands
@@ -296,10 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     countUp(counters);
 
-    // Keep "latest attack N min ago" honest while the page stays open.
+    // Keep "updated N min ago" honest while the page stays open.
     if (today) {
       setInterval(() => {
-        const when = ago(today.lastSeen);
+        const when = ago(today.savedAt);
         document.querySelectorAll('.live-stat__ago').forEach((el) => { el.textContent = when; });
       }, 60000);
     }
