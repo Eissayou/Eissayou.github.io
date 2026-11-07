@@ -192,3 +192,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 });
+
+// ---------------------------------------------------------------
+// Live honeypot stat (home featured card)
+// Reads the honeypot's public daily file for yesterday (Pacific time,
+// the same day boundary the threat map uses). If anything fails, the
+// static fallback text in the HTML stays put.
+// ---------------------------------------------------------------
+(function () {
+  const textEl = document.getElementById('honeypot-live-text');
+  if (!textEl || !window.fetch) return;
+
+  const BLOB = 'https://honeypotpublicdata.blob.core.windows.net/public-data/attacks_';
+  const fmtDay = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' });
+  const pacificDate = (offsetDays) => {
+    const [y, m, d] = fmtDay.format(new Date()).split('-').map(Number);
+    return new Date(Date.UTC(y, m - 1, d + offsetDays)).toISOString().slice(0, 10);
+  };
+  const num = new Intl.NumberFormat('en-US');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const tryDay = async (offset) => {
+    const res = await fetch(`${BLOB}${pacificDate(offset)}.json`, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(res.status);
+    const rows = await res.json();
+    if (!Array.isArray(rows) || !rows.length) throw new Error('empty');
+    return rows;
+  };
+
+  const render = (rows, offset) => {
+    const attempts = rows.reduce((sum, r) => sum + (Number(r.attack_count) || 0), 0);
+    const ips = new Set(rows.map((r) => r.ip)).size;
+    const countries = new Set(rows.map((r) => r.country).filter(Boolean)).size;
+    const when = offset === -1 ? 'yesterday' : 'in one day';
+    textEl.innerHTML =
+      `<strong id="honeypot-live-count">${num.format(attempts)}</strong> ` +
+      `RDP login attempts ${when} from ${num.format(ips)} IPs in ${num.format(countries)} countries`;
+    if (reduceMotion || document.visibilityState !== 'visible') return;
+    // The final number is already in the DOM; the count-up only starts once
+    // the browser actually paints (rAF), so a hidden tab or a renderer that
+    // never fires rAF still shows the real total rather than 0.
+    const countEl = document.getElementById('honeypot-live-count');
+    const DURATION = 1200;
+    let start;
+    const tick = (now) => {
+      if (start === undefined) start = now;
+      const t = Math.min(1, (now - start) / DURATION);
+      countEl.textContent = num.format(Math.round(attempts * (1 - Math.pow(1 - t, 3))));
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    // If the tab is hidden mid-animation, rAF pauses; snap to the real total.
+    document.addEventListener('visibilitychange', () => {
+      countEl.textContent = num.format(attempts);
+    }, { once: true });
+  };
+
+  tryDay(-1)
+    .then((rows) => render(rows, -1))
+    .catch(() => tryDay(-2).then((rows) => render(rows, -2)))
+    .catch(() => { /* keep the static fallback text */ });
+})();

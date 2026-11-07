@@ -3,6 +3,18 @@
   Author: Jason Eissayou (Redesign 2026)
 */
 
+/* Inline SVG icons (Font Awesome Free 6.4.2 paths, CC BY 4.0, https://fontawesome.com/license/free).
+   Inlined instead of loading the ~360 KB Font Awesome CSS + webfonts. */
+.icon {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  overflow: visible;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 /* =========================================
    1. VARIABLES & THEME
    ========================================= */
@@ -201,7 +213,7 @@ main {
   /* default border for alignment */
 }
 
-.btn i {
+.btn .icon {
   margin-right: 0.5rem;
 }
 
@@ -503,6 +515,55 @@ header {
   object-fit: contain;
   display: block;
   margin: 0 auto;
+}
+
+/* Live honeypot stat (home featured card) */
+.live-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem 0;
+  padding: 0.45rem 0.9rem;
+  border-radius: 99px;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.live-stat strong {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.live-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  flex-shrink: 0;
+}
+
+.live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: live-ping 1.8s ease-out infinite;
+}
+
+@keyframes live-ping {
+  0% { transform: scale(1); opacity: 0.7; }
+  80%, 100% { transform: scale(2.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot::after { animation: none; }
 }
 
 /* Desktop Featured Layout */
