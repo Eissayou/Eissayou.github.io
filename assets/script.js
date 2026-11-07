@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (today) {
       const when = ago(today.lastSeen);
       mainHtml = `${strong(today.attempts)} RDP login attempts today` +
-        (when ? ` · last one <span class="live-stat__ago">${when}</span>` : '');
+        (when ? ` · latest attack <span class="live-stat__ago">${when}</span>` : '');
       subHtml = yText;
     } else {
       mainHtml = yText; // just after midnight PT, before today's first file lands
@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     countUp(counters);
 
-    // Keep "last one N min ago" honest while the page stays open.
+    // Keep "latest attack N min ago" honest while the page stays open.
     if (today) {
       setInterval(() => {
         const when = ago(today.lastSeen);
